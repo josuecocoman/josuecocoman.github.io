@@ -111,7 +111,7 @@
     .nav-logo b{color:var(--c);font-weight:500}
     .nav-links{display:flex;gap:36px;list-style:none}
     .nav-links a{
-      font-size:10px;letter-spacing:2.5px;color:var(--sl);text-transform:uppercase;
+      font-size:10px;letter-spacing:2.5px;color:var(--tx);text-transform:uppercase;
       transition:color .2s;position:relative;
     }
     .nav-links a::after{
@@ -486,8 +486,8 @@
       <a href="/" class="nav-logo">Josue <b>Cascante</b></a>
       <ul class="nav-links">
         <li><a href="#services">Services</a></li>
-        <li><a href="#projects">Projects</a></li>
         <li><a href="#stack">Stack</a></li>
+        <li><a href="#projects">Projects</a></li>
         <li><a href="#timeline">Experience</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -548,9 +548,11 @@
   <div class="wrap">
     <div class="s-eye reveal">— Services</div>
     <div class="services-intro reveal">
-      <h2>What I deliver<br/>for <em>your business</em></h2>
-      <p>Not configuration. Not copy-paste modules.<br/>
-      Full process redesign, production-grade architecture, and real AI — deployed.</p>
+      <h2>Ten domains.<br/><em>One architect.</em></h2>
+      <p>Most specialists own one lane. I own the stack — from the ERP audit to the PCB schematic,
+      from the Kubernetes cluster to the AI model running inside your Odoo instance.
+      When your system breaks at the intersection of business logic and infrastructure,
+      that's exactly where I operate.</p>
     </div>
     <div class="svc-grid">
       <div class="svc reveal">
@@ -659,85 +661,6 @@
   </div>
 </section>
 
-<!-- NUMBERS -->
-<section id="numbers" aria-label="Numbers">
-  <div class="wrap">
-    <div class="num-row">
-      <div class="num-cell reveal">
-        <span class="num-n" data-count="16">0</span>
-        <div class="num-l">Years teaching</div>
-        <div class="num-d">COSVIC & USACA</div>
-      </div>
-      <div class="num-cell reveal">
-        <span class="num-n" data-count="3000" data-suffix="+">0</span>
-        <div class="num-l">Odoo modules</div>
-        <div class="num-d">In production globally</div>
-      </div>
-      <div class="num-cell reveal">
-        <span class="num-n" data-count="5" data-suffix="+">0</span>
-        <div class="num-l">Countries</div>
-        <div class="num-d">Active client deployments</div>
-      </div>
-      <div class="num-cell reveal">
-        <span class="num-n" data-count="100" data-suffix="+">0</span>
-        <div class="num-l">Students trained</div>
-        <div class="num-d">Hardware · Software · Networks</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects" aria-label="Selected Work">
-  <div class="wrap">
-    <div class="s-eye reveal">— Selected Work</div>
-    <div class="proj-grid">
-      <a href="https://github.com/josuecocoman/FE-CR" target="_blank" rel="noopener" class="proj reveal">
-        <div class="proj-category">Flagship · ERP</div>
-        <h3 class="proj-name">FE-CR — Electronic<br/>Invoicing Costa Rica</h3>
-        <p class="proj-desc">Proprietary Odoo module for Costa Rica's mandatory electronic invoicing system. Compatible with all Odoo versions (V10 through V19). Deployed in enterprise clients across LatAm.</p>
-        <div class="proj-lang">Python · Odoo · XML · Private</div>
-        <div class="proj-arrow">↗</div>
-      </a>
-      <a href="https://github.com/josuecocoman/LLM-LOCAL-GPT" target="_blank" rel="noopener" class="proj reveal">
-        <div class="proj-category">AI · Local LLM</div>
-        <h3 class="proj-name">LLM-LOCAL-GPT<br/>Local AI Server</h3>
-        <p class="proj-desc">Production GPT server running open-source LLM models locally. Zero cloud dependency. Integrated with Odoo in real time for enterprise automation. 2025.</p>
-        <div class="proj-lang">Python · LLM · Private</div>
-        <div class="proj-arrow">↗</div>
-      </a>
-      <a href="https://github.com/josuecocoman/dockerdoo" target="_blank" rel="noopener" class="proj reveal">
-        <div class="proj-category">DevOps · Containers</div>
-        <h3 class="proj-name">dockerdoo<br/>Odoo Docker Image</h3>
-        <p class="proj-desc">Flexible, streamlined Odoo Docker image for docker-compose, Docker Swarm, and Kubernetes. Fully integrated with VSCode devcontainers. Open source.</p>
-        <div class="proj-lang">Dockerfile · Shell · Public</div>
-        <div class="proj-arrow">↗</div>
-      </a>
-      <a href="https://github.com/josuecocoman/locustodoorpc" target="_blank" rel="noopener" class="proj reveal">
-        <div class="proj-category">QA · Load Testing</div>
-        <h3 class="proj-name">locustodoorpc<br/>Odoo Load Tester</h3>
-        <p class="proj-desc">Custom Locust client using OdooRPC for load testing Odoo instances at scale. Identifies bottlenecks before they hit production. Open source.</p>
-        <div class="proj-lang">Python · Locust · Public</div>
-        <div class="proj-arrow">↗</div>
-      </a>
-      <a href="https://github.com/josuecocoman/app_sale_odoo" target="_blank" rel="noopener" class="proj reveal">
-        <div class="proj-category">Mobile · ERP</div>
-        <h3 class="proj-name">app_sale_odoo<br/>Native Sales App</h3>
-        <p class="proj-desc">Native mobile sales application integrated with Odoo backend via RPC. TypeScript + real-time inventory, orders, and customer data. 2024.</p>
-        <div class="proj-lang">TypeScript · Flutter · Private</div>
-        <div class="proj-arrow">↗</div>
-      </a>
-      <a href="https://github.com/josuecocoman/IA-IQ" target="_blank" rel="noopener" class="proj reveal">
-        <div class="proj-category">AI · 2019–2020</div>
-        <h3 class="proj-name">Tensor IQ<br/>Proprietary AI System</h3>
-        <p class="proj-desc">IA-IQ / Daemon-IQ / API-IQ — a full AI stack built in 2019–2020. Daemon, API layer, database, and UI. Years before the LLM era. This is the proof.</p>
-        <div class="proj-lang">Python · Private · Pre-LLM</div>
-        <div class="proj-arrow">↗</div>
-      </a>
-    </div>
-  </div>
-</section>
-
 <!-- STACK -->
 <section id="stack" aria-label="Technical Stack">
   <div class="wrap">
@@ -820,6 +743,85 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- NUMBERS -->
+<section id="numbers" aria-label="Numbers">
+  <div class="wrap">
+    <div class="num-row">
+      <div class="num-cell reveal">
+        <span class="num-n" data-count="16">0</span>
+        <div class="num-l">Years teaching</div>
+        <div class="num-d">COSVIC & USACA</div>
+      </div>
+      <div class="num-cell reveal">
+        <span class="num-n" data-count="3000" data-suffix="+">0</span>
+        <div class="num-l">Odoo modules</div>
+        <div class="num-d">In production globally</div>
+      </div>
+      <div class="num-cell reveal">
+        <span class="num-n" data-count="5" data-suffix="+">0</span>
+        <div class="num-l">Countries</div>
+        <div class="num-d">Active client deployments</div>
+      </div>
+      <div class="num-cell reveal">
+        <span class="num-n" data-count="100" data-suffix="+">0</span>
+        <div class="num-l">Students trained</div>
+        <div class="num-d">Hardware · Software · Networks</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" aria-label="Selected Work">
+  <div class="wrap">
+    <div class="s-eye reveal">— Selected Work</div>
+    <div class="proj-grid">
+      <a href="https://github.com/josuecocoman/FE-CR" target="_blank" rel="noopener" class="proj reveal">
+        <div class="proj-category">Flagship · ERP</div>
+        <h3 class="proj-name">FE-CR — Electronic<br/>Invoicing Costa Rica</h3>
+        <p class="proj-desc">Proprietary Odoo module for Costa Rica's mandatory electronic invoicing system. Compatible with all Odoo versions (V10 through V19). Deployed in enterprise clients across LatAm.</p>
+        <div class="proj-lang">Python · Odoo · XML · Private</div>
+        <div class="proj-arrow">↗</div>
+      </a>
+      <a href="https://github.com/josuecocoman/LLM-LOCAL-GPT" target="_blank" rel="noopener" class="proj reveal">
+        <div class="proj-category">AI · Local LLM</div>
+        <h3 class="proj-name">LLM-LOCAL-GPT<br/>Local AI Server</h3>
+        <p class="proj-desc">Production GPT server running open-source LLM models locally. Zero cloud dependency. Integrated with Odoo in real time for enterprise automation. 2025.</p>
+        <div class="proj-lang">Python · LLM · Private</div>
+        <div class="proj-arrow">↗</div>
+      </a>
+      <a href="https://github.com/josuecocoman/dockerdoo" target="_blank" rel="noopener" class="proj reveal">
+        <div class="proj-category">DevOps · Containers</div>
+        <h3 class="proj-name">dockerdoo<br/>Odoo Docker Image</h3>
+        <p class="proj-desc">Flexible, streamlined Odoo Docker image for docker-compose, Docker Swarm, and Kubernetes. Fully integrated with VSCode devcontainers. Open source.</p>
+        <div class="proj-lang">Dockerfile · Shell · Public</div>
+        <div class="proj-arrow">↗</div>
+      </a>
+      <a href="https://github.com/josuecocoman/locustodoorpc" target="_blank" rel="noopener" class="proj reveal">
+        <div class="proj-category">QA · Load Testing</div>
+        <h3 class="proj-name">locustodoorpc<br/>Odoo Load Tester</h3>
+        <p class="proj-desc">Custom Locust client using OdooRPC for load testing Odoo instances at scale. Identifies bottlenecks before they hit production. Open source.</p>
+        <div class="proj-lang">Python · Locust · Public</div>
+        <div class="proj-arrow">↗</div>
+      </a>
+      <a href="https://github.com/josuecocoman/app_sale_odoo" target="_blank" rel="noopener" class="proj reveal">
+        <div class="proj-category">Mobile · ERP</div>
+        <h3 class="proj-name">app_sale_odoo<br/>Native Sales App</h3>
+        <p class="proj-desc">Native mobile sales application integrated with Odoo backend via RPC. TypeScript + real-time inventory, orders, and customer data. 2024.</p>
+        <div class="proj-lang">TypeScript · Flutter · Private</div>
+        <div class="proj-arrow">↗</div>
+      </a>
+      <a href="https://github.com/josuecocoman/IA-IQ" target="_blank" rel="noopener" class="proj reveal">
+        <div class="proj-category">AI · 2019–2020</div>
+        <h3 class="proj-name">Tensor IQ<br/>Proprietary AI System</h3>
+        <p class="proj-desc">IA-IQ / Daemon-IQ / API-IQ — a full AI stack built in 2019–2020. Daemon, API layer, database, and UI. Years before the LLM era. This is the proof.</p>
+        <div class="proj-lang">Python · Private · Pre-LLM</div>
+        <div class="proj-arrow">↗</div>
+      </a>
     </div>
   </div>
 </section>
