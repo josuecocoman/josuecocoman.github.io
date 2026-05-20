@@ -3,1219 +3,1166 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Josue Cascante — Senior Multi-Domain Engineer</title>
-  <meta name="description" content="Senior Multi-Domain Engineer. Odoo architect, DevOps, AI & Industrial Automation. Founder of Tensor Analytics, Costa Rica." />
-  <meta property="og:title" content="Josue Cascante — Senior Multi-Domain Engineer" />
+  <title>Josue Cascante — Senior Odoo Architect · AI · DevOps · Costa Rica</title>
+  <meta name="description" content="Senior Odoo Certified Consultant V19. DevOps architect. AI pioneer with 10+ years before the LLM era. Founder of Tensor Analytics, Costa Rica. Available for B2B engagements." />
+  <meta property="og:title" content="Josue Cascante — Senior Odoo Architect" />
   <meta property="og:description" content="I architect Odoo systems that survive the audit, the migration, and the third change of accountant." />
-
-  <!-- Fonts -->
+  <meta property="og:url" content="https://josuecocoman.github.io" />
+  <link rel="canonical" href="https://josuecocoman.github.io" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    /* ─── RESET ─────────────────────────────────────────────── */
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:auto;-webkit-font-smoothing:antialiased}
 
-    :root {
-      --terracota: #D97757;
-      --terracota-light: #B45309;
-      --warm-gray: #A8A29E;
-      --slate: #525252;
-      --deep: #0B1120;
-      --surface: #0F172A;
-      --border: #1E293B;
-      --text: #F1F5F9;
-      --mono: 'JetBrains Mono', 'Courier New', monospace;
-      --serif: 'Instrument Serif', Georgia, serif;
-    }
-
-    html { scroll-behavior: auto; }
-
-    body {
-      background: var(--deep);
-      color: var(--text);
-      font-family: var(--mono);
-      overflow-x: hidden;
-      cursor: none;
+    /* ─── TOKENS ─────────────────────────────────────────────── */
+    :root{
+      --c:#D97757;        /* terracota accent */
+      --cl:#B45309;       /* accent light */
+      --wg:#A8A29E;       /* warm gray */
+      --sl:#525252;       /* slate muted */
+      --bg:#080E1C;       /* deep bg */
+      --sf:#0B1320;       /* surface */
+      --bd:#1A2540;       /* border */
+      --tx:#F0F4FC;       /* text */
+      --mono:'JetBrains Mono',monospace;
+      --serif:'Instrument Serif',Georgia,serif;
+      --ease-out:cubic-bezier(0.16,1,0.3,1);
     }
 
-    /* Custom cursor */
-    .cursor {
-      position: fixed;
-      width: 10px;
-      height: 10px;
-      background: var(--terracota);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 9999;
-      transform: translate(-50%, -50%);
-      transition: width 0.2s, height 0.2s, opacity 0.2s;
-      mix-blend-mode: normal;
+    /* ─── BASE ───────────────────────────────────────────────── */
+    body{
+      background:var(--bg);
+      color:var(--tx);
+      font-family:var(--mono);
+      overflow-x:hidden;
+      cursor:none;
     }
-    .cursor-ring {
-      position: fixed;
-      width: 36px;
-      height: 36px;
-      border: 1px solid rgba(217,119,87,0.4);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 9998;
-      transform: translate(-50%, -50%);
-      transition: transform 0.12s ease-out, width 0.2s, height 0.2s;
-    }
-    body:has(a:hover) .cursor,
-    body:has(button:hover) .cursor { width: 6px; height: 6px; }
-    body:has(a:hover) .cursor-ring,
-    body:has(button:hover) .cursor-ring { width: 52px; height: 52px; }
+    a{color:inherit;text-decoration:none;cursor:none}
+    button{cursor:none;background:none;border:none;font:inherit}
 
-    /* Noise overlay */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 0;
-      opacity: 0.35;
+    /* ─── CURSOR ─────────────────────────────────────────────── */
+    #c-dot{
+      position:fixed;width:8px;height:8px;
+      background:var(--c);border-radius:50%;
+      pointer-events:none;z-index:9999;
+      transform:translate(-50%,-50%);
+      will-change:transform;
     }
-
-    /* Grid lines */
-    body::after {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(30,41,59,0.4) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(30,41,59,0.4) 1px, transparent 1px);
-      background-size: 60px 60px;
-      pointer-events: none;
-      z-index: 0;
+    #c-ring{
+      position:fixed;width:40px;height:40px;
+      border:1px solid rgba(217,119,87,.35);border-radius:50%;
+      pointer-events:none;z-index:9998;
+      transform:translate(-50%,-50%);
+      will-change:transform;
+      transition:width .25s var(--ease-out),height .25s var(--ease-out),border-color .25s;
     }
+    body.cursor-hover #c-ring{width:56px;height:56px;border-color:rgba(217,119,87,.7)}
+    body.cursor-hover #c-dot{width:4px;height:4px}
 
-    .container {
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 0 32px;
-      position: relative;
-      z-index: 1;
+    /* ─── PRELOADER ──────────────────────────────────────────── */
+    #preloader{
+      position:fixed;inset:0;background:var(--bg);
+      z-index:9000;display:flex;align-items:center;justify-content:center;
+      flex-direction:column;gap:20px;
+    }
+    #preloader-bar{
+      width:120px;height:1px;background:var(--bd);position:relative;overflow:hidden;
+    }
+    #preloader-bar::after{
+      content:'';position:absolute;inset:0;background:var(--c);
+      transform:scaleX(0);transform-origin:left;
+      animation:load 1.2s var(--ease-out) forwards;
+    }
+    #preloader-label{font-size:10px;letter-spacing:4px;color:var(--sl);text-transform:uppercase}
+    @keyframes load{to{transform:scaleX(1)}}
+
+    /* ─── NOISE TEXTURE ──────────────────────────────────────── */
+    #noise{
+      position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.028;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
     }
 
-    /* NAV */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      padding: 20px 0;
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.3s, background 0.3s;
-    }
-    nav.scrolled {
-      border-color: var(--border);
-      background: rgba(11,17,32,0.85);
-      backdrop-filter: blur(12px);
-    }
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .nav-logo {
-      font-size: 11px;
-      letter-spacing: 3px;
-      color: var(--warm-gray);
-      text-decoration: none;
-      text-transform: uppercase;
-    }
-    .nav-logo span { color: var(--terracota); }
-    .nav-links {
-      display: flex;
-      gap: 32px;
-      list-style: none;
-    }
-    .nav-links a {
-      font-size: 11px;
-      letter-spacing: 2px;
-      color: var(--slate);
-      text-decoration: none;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--text); }
-
-    /* HERO */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding: 120px 0 80px;
-    }
-    .hero-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-      width: 100%;
-    }
-    .hero-eyebrow {
-      font-size: 10px;
-      letter-spacing: 4px;
-      color: var(--terracota);
-      text-transform: uppercase;
-      margin-bottom: 24px;
-      opacity: 0;
-    }
-    .hero-name {
-      font-family: var(--serif);
-      font-size: clamp(52px, 7vw, 80px);
-      line-height: 1.02;
-      letter-spacing: -2px;
-      color: var(--text);
-      margin-bottom: 32px;
-      opacity: 0;
-    }
-    .hero-name em {
-      font-style: italic;
-      color: var(--terracota);
-    }
-    .hero-manifesto {
-      font-size: 14px;
-      line-height: 1.8;
-      color: var(--warm-gray);
-      max-width: 420px;
-      margin-bottom: 48px;
-      opacity: 0;
-    }
-    .hero-manifesto strong { color: var(--text); }
-    .hero-cta {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      opacity: 0;
-    }
-    .btn {
-      font-family: var(--mono);
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      padding: 12px 24px;
-      border-radius: 2px;
-      text-decoration: none;
-      transition: all 0.2s;
-      cursor: none;
-    }
-    .btn-primary {
-      background: var(--terracota);
-      color: var(--deep);
-      border: 1px solid var(--terracota);
-    }
-    .btn-primary:hover { background: transparent; color: var(--terracota); }
-    .btn-ghost {
-      background: transparent;
-      color: var(--warm-gray);
-      border: 1px solid var(--border);
-    }
-    .btn-ghost:hover { border-color: var(--warm-gray); color: var(--text); }
-
-    /* Right side: numbers */
-    .hero-stats {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      opacity: 0;
-    }
-    .stat-row {
-      display: flex;
-      align-items: baseline;
-      gap: 20px;
-      padding: 28px 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .stat-row:first-child { border-top: 1px solid var(--border); }
-    .stat-number {
-      font-family: var(--serif);
-      font-size: 48px;
-      font-weight: 400;
-      color: var(--text);
-      letter-spacing: -2px;
-      min-width: 100px;
-    }
-    .stat-label {
-      font-size: 10px;
-      letter-spacing: 3px;
-      color: var(--slate);
-      text-transform: uppercase;
-      line-height: 1.5;
-    }
-    .stat-label strong { display: block; color: var(--warm-gray); margin-top: 2px; font-weight: 400; font-size: 11px; letter-spacing: 1px; text-transform: none; }
-
-    /* Accent line left */
-    .accent-line {
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: linear-gradient(180deg, transparent, var(--terracota) 30%, var(--terracota) 70%, transparent);
-      opacity: 0;
+    /* ─── WEBGL CANVAS ───────────────────────────────────────── */
+    #bg-canvas{
+      position:fixed;inset:0;z-index:0;
+      pointer-events:none;opacity:.6;
     }
 
-    /* Sections */
-    section {
-      padding: 100px 0;
-      position: relative;
+    /* ─── LAYOUT ─────────────────────────────────────────────── */
+    .wrap{max-width:1100px;margin:0 auto;padding:0 40px;position:relative;z-index:2}
+
+    /* ─── NAV ────────────────────────────────────────────────── */
+    nav{
+      position:fixed;top:0;left:0;right:0;z-index:100;
+      padding:22px 0;
+      transition:background .4s,border-color .4s,padding .3s;
+      border-bottom:1px solid transparent;
     }
-    .section-eyebrow {
-      font-size: 10px;
-      letter-spacing: 4px;
-      color: var(--terracota);
-      text-transform: uppercase;
-      margin-bottom: 48px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
+    nav.s{
+      background:rgba(8,14,28,.88);
+      backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+      border-color:var(--bd);padding:16px 0;
     }
-    .section-eyebrow::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
+    .nav-i{display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{font-size:11px;letter-spacing:3px;color:var(--wg);text-transform:uppercase}
+    .nav-logo b{color:var(--c);font-weight:500}
+    .nav-links{display:flex;gap:36px;list-style:none}
+    .nav-links a{
+      font-size:10px;letter-spacing:2.5px;color:var(--sl);text-transform:uppercase;
+      transition:color .2s;position:relative;
+    }
+    .nav-links a::after{
+      content:'';position:absolute;bottom:-4px;left:0;right:0;height:1px;
+      background:var(--c);transform:scaleX(0);transform-origin:left;
+      transition:transform .25s var(--ease-out);
+    }
+    .nav-links a:hover{color:var(--tx)}
+    .nav-links a:hover::after{transform:scaleX(1)}
+    .nav-cta{
+      font-size:10px;letter-spacing:2px;color:var(--c);
+      border:1px solid rgba(217,119,87,.4);padding:8px 16px;
+      text-transform:uppercase;
+      transition:background .2s,color .2s,border-color .2s;
+    }
+    .nav-cta:hover{background:var(--c);color:var(--bg)}
+
+    /* ─── HERO ───────────────────────────────────────────────── */
+    .hero{
+      min-height:100vh;display:flex;align-items:center;
+      padding:140px 0 80px;
+    }
+    .hero-grid{
+      display:grid;grid-template-columns:1.1fr 0.9fr;
+      gap:60px;align-items:center;width:100%;
+    }
+    .hero-grid--pl{padding-left:24px}
+    .hero-tag{
+      display:inline-flex;align-items:center;gap:8px;
+      font-size:10px;letter-spacing:3px;color:var(--c);
+      text-transform:uppercase;margin-bottom:28px;
+      opacity:0;transform:translateY(12px);
+    }
+    .hero-tag-dot{width:6px;height:6px;border-radius:50%;background:var(--c);
+      animation:pulse-dot 2s ease-in-out infinite}
+    @keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.4)}}
+    .hero-h1{
+      font-family:var(--serif);
+      font-size:clamp(54px,6.5vw,88px);
+      line-height:1.0;letter-spacing:-2px;
+      color:var(--tx);margin-bottom:8px;
+      opacity:0;transform:translateY(20px);
+    }
+    .hero-h1 em{font-style:italic;color:var(--c)}
+    .hero-sub{
+      font-family:var(--serif);font-style:italic;
+      font-size:clamp(18px,2vw,24px);
+      color:var(--wg);margin-bottom:36px;
+      opacity:0;transform:translateY(16px);
+    }
+    .hero-copy{
+      font-size:13px;line-height:1.85;color:var(--wg);
+      max-width:460px;margin-bottom:44px;
+      opacity:0;transform:translateY(14px);
+    }
+    .hero-copy strong{color:var(--tx)}
+    .hero-btns{display:flex;gap:14px;flex-wrap:wrap;opacity:0;transform:translateY(12px)}
+    .btn{
+      font-family:var(--mono);font-size:10px;letter-spacing:2.5px;
+      text-transform:uppercase;padding:13px 26px;
+      transition:all .22s var(--ease-out);display:inline-block;
+    }
+    .btn-p{background:var(--c);color:var(--bg);border:1px solid var(--c)}
+    .btn-p:hover{background:transparent;color:var(--c)}
+    .btn-g{background:transparent;color:var(--wg);border:1px solid var(--bd)}
+    .btn-g:hover{border-color:var(--wg);color:var(--tx)}
+
+    /* Hero right: stats */
+    .hero-stats{opacity:0;transform:translateY(16px)}
+    .stat{
+      padding:28px 0;border-bottom:1px solid var(--bd);
+      display:flex;align-items:baseline;gap:22px;
+    }
+    .stat:first-child{border-top:1px solid var(--bd)}
+    .stat-n{
+      font-family:var(--serif);font-size:52px;
+      color:var(--tx);letter-spacing:-2px;min-width:110px;
+      font-weight:400;
+    }
+    .stat-n-sm{font-size:32px;letter-spacing:-1px;min-width:110px}
+    .stat-l{font-size:9px;letter-spacing:3px;color:var(--sl);text-transform:uppercase;line-height:1.6}
+    .stat-l span{display:block;color:var(--wg);font-size:11px;letter-spacing:1px;
+      text-transform:none;margin-top:3px}
+
+    /* Accent vertical line */
+    .hero-line{
+      position:absolute;left:-20px;top:0;bottom:0;width:2px;
+      background:linear-gradient(180deg,transparent 0%,var(--c) 25%,var(--c) 75%,transparent 100%);
+      opacity:0;
     }
 
-    /* PRACTICE */
-    .practice-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
+    /* ─── SECTION SHARED ─────────────────────────────────────── */
+    section{padding:110px 0;position:relative}
+    .s-eye{
+      font-size:10px;letter-spacing:4px;color:var(--c);
+      text-transform:uppercase;display:flex;align-items:center;gap:16px;
+      margin-bottom:52px;
     }
-    .practice-card {
-      background: var(--deep);
-      padding: 40px;
-      position: relative;
-      overflow: hidden;
-      transition: background 0.3s;
+    .s-eye::after{content:'';flex:1;height:1px;background:var(--bd)}
+    .reveal{opacity:0;transform:translateY(28px)}
+
+    /* ─── SERVICES (empresa lo ve primero) ───────────────────── */
+    #services{background:var(--sf)}
+    .services-intro{
+      max-width:560px;margin-bottom:64px;
     }
-    .practice-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: var(--terracota);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.4s ease;
+    .services-intro h2{
+      font-family:var(--serif);font-size:clamp(32px,3.5vw,46px);
+      line-height:1.15;letter-spacing:-1px;margin-bottom:20px;
     }
-    .practice-card:hover::before { transform: scaleX(1); }
-    .practice-card:hover { background: var(--surface); }
-    .practice-num {
-      font-size: 10px;
-      letter-spacing: 3px;
-      color: var(--border);
-      margin-bottom: 16px;
+    .services-intro h2 em{font-style:italic;color:var(--c)}
+    .services-intro p{font-size:13px;color:var(--wg);line-height:1.8}
+    .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--bd)}
+    .svc{
+      background:var(--sf);padding:40px 36px;position:relative;overflow:hidden;
+      transition:background .3s;
     }
-    .practice-title {
-      font-family: var(--serif);
-      font-size: 22px;
-      color: var(--text);
-      margin-bottom: 16px;
+    .svc::before{
+      content:'';position:absolute;top:0;left:0;right:0;height:2px;
+      background:var(--c);transform:scaleX(0);transform-origin:left;
+      transition:transform .4s var(--ease-out);
     }
-    .practice-body {
-      font-size: 12px;
-      line-height: 1.8;
-      color: var(--warm-gray);
+    .svc:hover{background:#0E1828}
+    .svc:hover::before{transform:scaleX(1)}
+    .svc-num{font-size:10px;letter-spacing:3px;color:var(--bd);margin-bottom:20px}
+    .svc-title{
+      font-family:var(--serif);font-size:20px;color:var(--tx);
+      margin-bottom:14px;line-height:1.3;
     }
-    .practice-tag {
-      display: inline-block;
-      margin-top: 20px;
-      font-size: 10px;
-      letter-spacing: 2px;
-      color: var(--terracota);
-      text-transform: uppercase;
-      border-bottom: 1px solid var(--terracota);
-      padding-bottom: 2px;
+    .svc-body{font-size:12px;color:var(--wg);line-height:1.8;margin-bottom:20px}
+    .svc-tags{display:flex;flex-wrap:wrap;gap:6px}
+    .tag{
+      font-size:9px;letter-spacing:1.5px;color:var(--sl);
+      border:1px solid var(--bd);padding:4px 8px;text-transform:uppercase;
+      transition:color .2s,border-color .2s;
+    }
+    .svc:hover .tag{color:var(--wg);border-color:rgba(217,119,87,.25)}
+
+    /* Bottom CTA row inside services */
+    .svc-cta-row{
+      margin-top:52px;display:flex;align-items:center;
+      justify-content:space-between;flex-wrap:wrap;gap:20px;
+      padding-top:36px;border-top:1px solid var(--bd);
+    }
+    .svc-cta-copy{font-size:12px;color:var(--wg)}
+    .svc-cta-copy strong{color:var(--tx)}
+
+    /* ─── NUMBERS ────────────────────────────────────────────── */
+    #numbers{overflow:hidden}
+    .num-row{
+      display:grid;grid-template-columns:repeat(4,1fr);
+      border:1px solid var(--bd);
+    }
+    .num-cell{
+      padding:48px 40px;border-right:1px solid var(--bd);
+      position:relative;
+    }
+    .num-cell:last-child{border-right:none}
+    .num-cell::after{
+      content:'';position:absolute;top:0;left:0;right:0;height:2px;
+      background:linear-gradient(90deg,var(--c),transparent);
+      opacity:0;transition:opacity .3s;
+    }
+    .num-cell:hover::after{opacity:1}
+    .num-n{
+      font-family:var(--serif);font-size:clamp(42px,4vw,60px);
+      color:var(--tx);letter-spacing:-2px;display:block;margin-bottom:8px;
+    }
+    .num-l{font-size:9px;letter-spacing:3px;color:var(--sl);text-transform:uppercase}
+    .num-d{font-size:11px;color:var(--wg);margin-top:6px}
+
+    /* ─── PROJECTS ───────────────────────────────────────────── */
+    #projects .proj-grid{
+      display:grid;grid-template-columns:repeat(2,1fr);gap:1px;
+      background:var(--bd);border:1px solid var(--bd);
+    }
+    .proj{
+      background:var(--bg);padding:40px 36px;
+      position:relative;overflow:hidden;
+      transition:background .3s;
+      display:flex;flex-direction:column;gap:14px;
+    }
+    .proj:hover{background:var(--sf)}
+    .proj-category{
+      font-size:9px;letter-spacing:3px;color:var(--c);text-transform:uppercase;
+    }
+    .proj-name{
+      font-family:var(--serif);font-size:22px;color:var(--tx);line-height:1.2;
+    }
+    .proj-desc{font-size:12px;color:var(--wg);line-height:1.75;flex:1}
+    .proj-lang{
+      font-size:9px;letter-spacing:2px;color:var(--sl);text-transform:uppercase;
+      border-top:1px solid var(--bd);padding-top:14px;margin-top:auto;
+    }
+    .proj-arrow{
+      position:absolute;top:36px;right:36px;
+      font-size:18px;color:var(--bd);
+      transform:rotate(-45deg);
+      transition:color .2s,transform .25s var(--ease-out);
+    }
+    .proj:hover .proj-arrow{color:var(--c);transform:rotate(0deg)}
+
+    /* ─── STACK ──────────────────────────────────────────────── */
+    #stack .stack-outer{
+      display:grid;grid-template-columns:200px 1fr;gap:80px;align-items:start;
+    }
+    .stack-nav{display:flex;flex-direction:column;gap:2px;position:sticky;top:120px}
+    .stack-nav-item{
+      font-size:10px;letter-spacing:2.5px;color:var(--sl);
+      text-transform:uppercase;padding:10px 0;
+      border-left:2px solid var(--bd);padding-left:16px;
+      transition:color .2s,border-color .2s;
+    }
+    .stack-nav-item.active,.stack-nav-item:hover{
+      color:var(--c);border-color:var(--c);
+    }
+    .stack-groups{display:flex;flex-direction:column;gap:0}
+    .stack-group{
+      padding:40px 0;border-bottom:1px solid var(--bd);
+    }
+    .stack-group:first-child{padding-top:0}
+    .stack-group-h{
+      font-size:10px;letter-spacing:3px;color:var(--c);
+      text-transform:uppercase;margin-bottom:20px;
+    }
+    .stack-chips{display:flex;flex-wrap:wrap;gap:8px}
+    .chip{
+      font-size:11px;color:var(--wg);
+      border:1px solid var(--bd);padding:6px 12px;
+      transition:color .2s,border-color .2s,background .2s;
+    }
+    .chip:hover{color:var(--tx);border-color:rgba(217,119,87,.5);background:rgba(217,119,87,.05)}
+
+    /* ─── TIMELINE ───────────────────────────────────────────── */
+    #timeline .tl-wrap{
+      position:relative;padding-left:32px;
+    }
+    #timeline .tl-wrap::before{
+      content:'';position:absolute;left:0;top:8px;bottom:8px;width:1px;
+      background:linear-gradient(180deg,var(--c),rgba(217,119,87,.1));
+    }
+    .tl-item{
+      position:relative;padding:0 0 52px 40px;
+    }
+    .tl-item::before{
+      content:'';position:absolute;left:-5px;top:8px;
+      width:10px;height:10px;border-radius:50%;
+      background:var(--bd);border:1px solid var(--bd);
+      transition:background .3s,border-color .3s;
+    }
+    .tl-item:hover::before{background:var(--c);border-color:var(--c)}
+    .tl-item:last-child{padding-bottom:0}
+    .tl-period{font-size:10px;letter-spacing:2px;color:var(--c);margin-bottom:8px}
+    .tl-role{
+      font-family:var(--serif);font-size:20px;color:var(--tx);
+      margin-bottom:6px;line-height:1.2;
+    }
+    .tl-company{font-size:12px;color:var(--wg);margin-bottom:10px}
+    .tl-desc{font-size:12px;color:var(--sl);line-height:1.75;max-width:560px}
+
+    /* ─── CONTACT ────────────────────────────────────────────── */
+    #contact{background:var(--sf);text-align:center;padding:120px 0}
+    .contact-label{
+      font-size:10px;letter-spacing:4px;color:var(--c);
+      text-transform:uppercase;margin-bottom:28px;
+    }
+    .contact-h{
+      font-family:var(--serif);
+      font-size:clamp(40px,5vw,68px);
+      line-height:1.05;letter-spacing:-2px;
+      margin-bottom:24px;
+    }
+    .contact-h em{font-style:italic;color:var(--c)}
+    .contact-sub{font-size:13px;color:var(--wg);margin-bottom:48px;line-height:1.7}
+    .contact-links{
+      display:grid;grid-template-columns:repeat(4,1fr);
+      gap:1px;background:var(--bd);
+      border:1px solid var(--bd);max-width:780px;margin:0 auto 48px;
+      text-align:left;
+    }
+    .cl{background:var(--sf);padding:28px 24px;transition:background .2s}
+    .cl:hover{background:#0E1828}
+    .cl-label{font-size:9px;letter-spacing:3px;color:var(--c);text-transform:uppercase;margin-bottom:10px}
+    .cl-val{font-size:12px;color:var(--wg);line-height:1.5;transition:color .2s}
+    .cl:hover .cl-val{color:var(--tx)}
+    .contact-avail{
+      display:inline-flex;align-items:center;gap:10px;
+      font-size:11px;color:var(--wg);letter-spacing:1px;
+    }
+    .avail-dot{
+      width:8px;height:8px;border-radius:50%;background:#22c55e;
+      box-shadow:0 0 0 0 rgba(34,197,94,.4);
+      animation:avail-pulse 2.5s ease-in-out infinite;
+    }
+    @keyframes avail-pulse{
+      0%{box-shadow:0 0 0 0 rgba(34,197,94,.4)}
+      70%{box-shadow:0 0 0 8px rgba(34,197,94,0)}
+      100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}
     }
 
-    /* WORK / PROJECTS */
-    .work-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
+    /* ─── FOOTER ─────────────────────────────────────────────── */
+    footer{
+      padding:28px 0;border-top:1px solid var(--bd);
     }
-    .work-card {
-      background: var(--deep);
-      padding: 32px;
-      position: relative;
-      overflow: hidden;
-      transition: background 0.3s;
-      text-decoration: none;
-      display: block;
-    }
-    .work-card::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: var(--terracota);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.4s ease;
-    }
-    .work-card:hover::after { transform: scaleX(1); }
-    .work-card:hover { background: var(--surface); }
-    .work-cat {
-      font-size: 9px;
-      letter-spacing: 3px;
-      color: var(--terracota);
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-    .work-title {
-      font-family: var(--serif);
-      font-size: 18px;
-      color: var(--text);
-      margin-bottom: 10px;
-    }
-    .work-desc {
-      font-size: 11px;
-      line-height: 1.7;
-      color: var(--warm-gray);
-    }
-    .work-lang {
-      display: inline-block;
-      margin-top: 16px;
-      font-size: 9px;
-      letter-spacing: 2px;
-      color: var(--slate);
-      text-transform: uppercase;
-      border: 1px solid var(--border);
-      padding: 3px 8px;
+    .footer-i{display:flex;align-items:center;justify-content:space-between}
+    .footer-l{font-size:10px;letter-spacing:2px;color:var(--sl);text-transform:uppercase}
+    .footer-r{display:flex;gap:28px}
+    .footer-r a{font-size:10px;letter-spacing:2px;color:var(--sl);
+      text-transform:uppercase;transition:color .2s}
+    .footer-r a:hover{color:var(--c)}
+
+    /* ─── SCROLL PROGRESS ────────────────────────────────────── */
+    #progress{
+      position:fixed;top:0;left:0;height:2px;background:var(--c);
+      z-index:200;transform-origin:left;transform:scaleX(0);
+      will-change:transform;
     }
 
-    /* TIMELINE */
-    .timeline {
-      position: relative;
-      padding-left: 32px;
+    /* ─── RESPONSIVE ─────────────────────────────────────────── */
+    @media(max-width:900px){
+      .hero-grid{grid-template-columns:1fr;gap:48px}
+      .svc-grid{grid-template-columns:1fr}
+      .num-row{grid-template-columns:repeat(2,1fr)}
+      #projects .proj-grid{grid-template-columns:1fr}
+      #stack .stack-outer{grid-template-columns:1fr;gap:0}
+      .stack-nav{display:none}
+      .contact-links{grid-template-columns:repeat(2,1fr)}
+      .nav-links{display:none}
+      #c-dot,#c-ring{display:none}
+      body{cursor:auto}
+      a,button{cursor:pointer}
     }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 8px;
-      bottom: 8px;
-      width: 1px;
-      background: linear-gradient(180deg, var(--terracota), var(--border) 80%);
+    @media(max-width:520px){
+      .wrap{padding:0 20px}
+      .num-row{grid-template-columns:1fr}
+      .contact-links{grid-template-columns:1fr}
+      .hero-btns{flex-direction:column}
+      .btn{text-align:center}
     }
-    .timeline-item {
-      position: relative;
-      padding-bottom: 40px;
-    }
-    .timeline-item:last-child { padding-bottom: 0; }
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -36px;
-      top: 8px;
-      width: 8px;
-      height: 8px;
-      background: var(--terracota);
-      border-radius: 50%;
-    }
-    .timeline-period {
-      font-size: 9px;
-      letter-spacing: 3px;
-      color: var(--terracota);
-      text-transform: uppercase;
-      margin-bottom: 6px;
-    }
-    .timeline-role {
-      font-family: var(--serif);
-      font-size: 17px;
-      color: var(--text);
-      margin-bottom: 4px;
-    }
-    .timeline-company {
-      font-size: 11px;
-      color: var(--warm-gray);
-      line-height: 1.6;
-    }
-
-    /* TIMELINE COLUMNS */
-    .timeline-columns {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-    }
-    @media (max-width: 768px) {
-      .timeline-columns { grid-template-columns: 1fr; gap: 40px; }
-    }
-
-    /* CERTIFICATIONS */
-    .cert-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-    }
-    .cert-card {
-      background: var(--deep);
-      padding: 32px 28px;
-      transition: background 0.2s;
-    }
-    .cert-card:hover { background: var(--surface); }
-    .cert-issuer {
-      font-size: 9px;
-      letter-spacing: 3px;
-      color: var(--terracota);
-      text-transform: uppercase;
-      margin-bottom: 10px;
-    }
-    .cert-name {
-      font-family: var(--serif);
-      font-size: 16px;
-      color: var(--text);
-      margin-bottom: 8px;
-      line-height: 1.3;
-    }
-    .cert-meta {
-      font-size: 10px;
-      color: var(--slate);
-      line-height: 1.6;
-    }
-
-    /* STACK */
-    .stack-groups {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 40px;
-    }
-    .stack-group-label {
-      font-size: 10px;
-      letter-spacing: 3px;
-      color: var(--terracota);
-      text-transform: uppercase;
-      margin-bottom: 16px;
-    }
-    .stack-chips {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .chip {
-      font-size: 11px;
-      color: var(--warm-gray);
-      padding: 6px 0;
-      border-bottom: 1px solid rgba(30,41,59,0.6);
-      transition: color 0.2s, border-color 0.2s;
-    }
-    .chip:hover { color: var(--text); border-color: var(--terracota); }
-
-    /* CURRENTLY */
-    .currently-block {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-    }
-    .currently-text {
-      font-family: var(--serif);
-      font-size: clamp(24px, 3vw, 36px);
-      line-height: 1.3;
-      color: var(--text);
-    }
-    .currently-text em { color: var(--terracota); font-style: italic; }
-    .currently-meta {
-      font-size: 12px;
-      color: var(--warm-gray);
-      line-height: 1.9;
-      margin-top: 20px;
-    }
-    .reach-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-    }
-    .reach-card {
-      background: var(--deep);
-      padding: 32px 28px;
-      transition: background 0.2s;
-    }
-    .reach-card:hover { background: var(--surface); }
-    .reach-label {
-      font-size: 9px;
-      letter-spacing: 3px;
-      color: var(--terracota);
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-    .reach-value {
-      font-size: 12px;
-      color: var(--warm-gray);
-      text-decoration: none;
-      display: block;
-      line-height: 1.6;
-      transition: color 0.2s;
-    }
-    .reach-value:hover { color: var(--text); }
-
-    /* FOOTER */
-    footer {
-      padding: 40px 0;
-      border-top: 1px solid var(--border);
-    }
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .footer-copy {
-      font-size: 10px;
-      letter-spacing: 2px;
-      color: var(--slate);
-      text-transform: uppercase;
-    }
-    .footer-link {
-      font-size: 10px;
-      color: var(--slate);
-      text-decoration: none;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
-    .footer-link:hover { color: var(--terracota); }
-
-    /* Scroll reveal */
-    .reveal { opacity: 0; transform: translateY(24px); }
-
-    /* Reduced motion */
-    @media (prefers-reduced-motion: reduce) {
-      .reveal { opacity: 1; transform: none; }
-      .hero-eyebrow, .hero-name, .hero-manifesto, .hero-cta, .hero-stats, .accent-line { opacity: 1; transform: none; }
-    }
-
-    @media (max-width: 768px) {
-      .hero-inner { grid-template-columns: 1fr; gap: 60px; }
-      .practice-grid { grid-template-columns: 1fr; }
-      .work-grid { grid-template-columns: 1fr; }
-      .cert-grid { grid-template-columns: 1fr; }
-      .stack-groups { grid-template-columns: repeat(2, 1fr); }
-      .currently-block { grid-template-columns: 1fr; }
-      .reach-grid { grid-template-columns: repeat(2, 1fr); }
-      .nav-links { display: none; }
-      .cursor, .cursor-ring { display: none; }
-      body { cursor: auto; }
-      a, button { cursor: pointer; }
-    }
-    @media (max-width: 1024px) and (min-width: 769px) {
-      .work-grid { grid-template-columns: repeat(2, 1fr); }
-      .cert-grid { grid-template-columns: repeat(2, 1fr); }
+    @media(prefers-reduced-motion:reduce){
+      .reveal,.hero-tag,.hero-h1,.hero-sub,.hero-copy,.hero-btns,.hero-stats,
+      .hero-line{opacity:1;transform:none}
+      *{animation-duration:.01ms !important;transition-duration:.01ms !important}
     }
   </style>
 </head>
 <body>
 
-  <!-- Custom cursor -->
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-ring" id="cursorRing"></div>
+<!-- Preloader -->
+<div id="preloader">
+  <div id="preloader-label">Tensor Analytics</div>
+  <div id="preloader-bar"></div>
+</div>
 
-  <!-- Nav -->
-  <nav id="nav">
-    <div class="container">
-      <div class="nav-inner">
-        <a href="/" class="nav-logo">Josue <span>Cascante</span></a>
-        <ul class="nav-links">
-          <li><a href="#practice">Practice</a></li>
-          <li><a href="#work">Work</a></li>
-          <li><a href="#timeline">Experience</a></li>
-          <li><a href="#stack">Stack</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li><a href="https://github.com/josuecocoman" target="_blank" rel="noopener">GitHub</a></li>
-        </ul>
-      </div>
+<!-- Noise -->
+<div id="noise" aria-hidden="true"></div>
+
+<!-- Scroll progress -->
+<div id="progress" aria-hidden="true"></div>
+
+<!-- WebGL canvas -->
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+<!-- Cursor -->
+<div id="c-dot" aria-hidden="true"></div>
+<div id="c-ring" aria-hidden="true"></div>
+
+<!-- NAV -->
+<nav id="nav" role="navigation">
+  <div class="wrap">
+    <div class="nav-i">
+      <a href="/" class="nav-logo">Josue <b>Cascante</b></a>
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#stack">Stack</a></li>
+        <li><a href="#timeline">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="mailto:tensordoo@gmail.com" class="nav-cta btn">Hire me →</a>
     </div>
-  </nav>
+  </div>
+</nav>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="container" style="position:relative;">
-      <div class="accent-line" id="accentLine"></div>
-      <div class="hero-inner" style="padding-left: 24px;">
-        <div>
-          <p class="hero-eyebrow" id="heroEyebrow">— Senior Multi-Domain Engineer &nbsp;·&nbsp; Costa Rica</p>
-          <h1 class="hero-name" id="heroName">Josue<br/><em>Cascante</em></h1>
-          <p class="hero-manifesto" id="heroManifesto">
-            I architect Odoo systems that survive the audit, the migration,
-            and the <strong>third change of accountant.</strong><br/><br/>
-            Founder of <strong>Tensor Analytics</strong> — senior consulting at the intersection
-            of ERP, infrastructure, AI, and industrial automation.
-            10+ years doing with automation what most discovered after ChatGPT.
-          </p>
-          <div class="hero-cta" id="heroCta">
-            <a href="mailto:tensordoo@gmail.com" class="btn btn-primary">Contact for engagements →</a>
-            <a href="#practice" class="btn btn-ghost">View practice</a>
-          </div>
+<!-- HERO -->
+<main>
+<section class="hero" aria-label="Hero">
+  <div class="wrap">
+    <div class="hero-line" id="hl"></div>
+    <div class="hero-grid hero-grid--pl">
+      <div>
+        <div class="hero-tag" id="h-tag">
+          <span class="hero-tag-dot"></span>
+          Senior Odoo Certified V19 &nbsp;·&nbsp; Costa Rica
         </div>
-        <div class="hero-stats" id="heroStats">
-          <div class="stat-row">
-            <div class="stat-number" data-count="16">0</div>
-            <div class="stat-label">
-              YEARS TEACHING
-              <strong>COSVIC & USACA · 100+ students</strong>
-            </div>
-          </div>
-          <div class="stat-row">
-            <div class="stat-number" data-count="3000" data-suffix="+">0</div>
-            <div class="stat-label">
-              MODULES IN PRODUCTION
-              <strong>Odoo deployments · 5+ countries</strong>
-            </div>
-          </div>
-          <div class="stat-row">
-            <div class="stat-number" style="font-size:28px; letter-spacing:-1px;">V10→V19</div>
-            <div class="stat-label">
-              ODOO CERTIFIED
-              <strong>Official V19 · all major versions</strong>
-            </div>
-          </div>
+        <h1 class="hero-h1" id="h-name">Josue<br/><em>Cascante</em></h1>
+        <p class="hero-sub" id="h-sub">Founder, Tensor Analytics</p>
+        <p class="hero-copy" id="h-copy">
+          I architect Odoo systems that survive the audit, the migration,
+          and the <strong>third change of accountant.</strong><br/><br/>
+          Senior consulting at the intersection of ERP, infrastructure,
+          AI, and industrial automation.
+          <strong>10+ years in automation</strong> before it was a LinkedIn skill.
+        </p>
+        <div class="hero-btns" id="h-btns">
+          <a href="mailto:tensordoo@gmail.com" class="btn btn-p">Contact for engagements →</a>
+          <a href="#services" class="btn btn-g">View services</a>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Practice -->
-  <section id="practice">
-    <div class="container">
-      <div class="section-eyebrow reveal">— Practice</div>
-      <div class="practice-grid">
-        <div class="practice-card reveal">
-          <div class="practice-num">01</div>
-          <h2 class="practice-title">Odoo ERP</h2>
-          <p class="practice-body">
-            Certified V19. Architecture, module development, full business process
-            redesign — accounting, HR, manufacturing, inventory, health sector.
-            I don't configure modules. I redesign workflows.<br/><br/>
-            Flagship: proprietary Electronic Invoicing for Costa Rica,
-            compatible across all Odoo versions. Localization CR in production
-            across 5+ countries with ConetechCR.
-          </p>
-          <span class="practice-tag">Odoo V10 → V19</span>
+      <div class="hero-stats" id="h-stats">
+        <div class="stat">
+          <div class="stat-n" data-count="16">0</div>
+          <div class="stat-l">Years<br/>teaching<span>COSVIC & USACA · 100+ students</span></div>
         </div>
-        <div class="practice-card reveal">
-          <div class="practice-num">02</div>
-          <h2 class="practice-title">DevOps & Architecture</h2>
-          <p class="practice-body">
-            Odoo clusters on Proxmox with hardening. Kubernetes · Docker · Nginx ·
-            PostgreSQL deep tuning (pre-fetch, LRU cache, cProfile profiling) ·
-            Redis · RabbitMQ · Celery. Flexible Docker images for K8s and Swarm.<br/><br/>
-            Load testing with custom Locust/OdooRPC clients.
-            Built for production reality, not demo conditions.
-          </p>
-          <span class="practice-tag">Infrastructure · K8s · Proxmox</span>
+        <div class="stat">
+          <div class="stat-n" data-count="3000" data-suffix="+">0</div>
+          <div class="stat-l">Modules<br/>in production<span>Odoo · 5+ countries</span></div>
         </div>
-        <div class="practice-card reveal">
-          <div class="practice-num">03</div>
-          <h2 class="practice-title">AI & Automation</h2>
-          <p class="practice-body">
-            Not the ChatGPT-era kind. 10+ years in automation before LLMs
-            became a LinkedIn skill. Local AI servers, custom models integrated
-            with Odoo in real time, prompt engineering that ships to production.<br/><br/>
-            Own AI system built in 2019 (IA-IQ, Daemon-IQ, API-IQ).
-            Senior AI Developer at Conetech — AI in 6 countries.
-          </p>
-          <span class="practice-tag">LLMs · Local AI · Prompt Engineering</span>
+        <div class="stat">
+          <div class="stat-n stat-n-sm">V10→V19</div>
+          <div class="stat-l">Odoo<br/>certified<span>Official V19 · all major versions</span></div>
         </div>
-        <div class="practice-card reveal">
-          <div class="practice-num">04</div>
-          <h2 class="practice-title">Industrial & IoT</h2>
-          <p class="practice-body">
-            INA-certified in PCB design and PIC microcontroller programming.
-            Industrial machinery retrofit with sensors and IoT. Secure local and
-            portable networks, IP camera systems, home automation.<br/><br/>
-            From the wire to the dashboard.
-          </p>
-          <span class="practice-tag">PCB · PIC · IoT · Networks</span>
-        </div>
-        <div class="practice-card reveal">
-          <div class="practice-num">05</div>
-          <h2 class="practice-title">Full-Stack & Mobile</h2>
-          <p class="practice-body">
-            Native mobile apps: Android (Java), iOS (Swift), Flutter.
-            Backend: Django, Rails, Laravel, Node.js.
-            Frontend: Vue.js, Angular, TypeScript.<br/><br/>
-            Native sales app integrated with Odoo via RPC.
-            Own products: Letsee (UI + backend), Licitia Dashboard.
-          </p>
-          <span class="practice-tag">Flutter · Android · iOS · Vue · Django</span>
-        </div>
-        <div class="practice-card reveal">
-          <div class="practice-num">06</div>
-          <h2 class="practice-title">Financial Markets</h2>
-          <p class="practice-body">
-            MQL5 algorithmic trading robots for Forex (ITM-FOREX series).
-            Certified trainer by Swissquote — strategies in production 2018–2023.
-            Digital marketing and growth strategy for B2B clients.<br/><br/>
-            Automation applied to financial markets.
-          </p>
-          <span class="practice-tag">MQL5 · Algo Trading · Swissquote</span>
+        <div class="stat">
+          <div class="stat-n stat-n-sm">2019→</div>
+          <div class="stat-l">AI<br/>since<span>Before the LLM era. For real.</span></div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Selected Work -->
-  <section id="work">
-    <div class="container">
-      <div class="section-eyebrow reveal">— Selected Work</div>
-      <div class="work-grid">
-        <a href="https://github.com/josuecocoman/FE-CR" target="_blank" rel="noopener" class="work-card reveal">
-          <div class="work-cat">Flagship · ERP</div>
-          <div class="work-title">FE-CR</div>
-          <p class="work-desc">Proprietary Electronic Invoicing for Costa Rica. Production-grade Odoo module compatible across all versions V10 to V19. Deployed across 5+ countries.</p>
-          <span class="work-lang">Python</span>
-        </a>
-        <a href="https://github.com/josuecocoman/LocalizacionCR-Tensor-ConetechCR" target="_blank" rel="noopener" class="work-card reveal">
-          <div class="work-cat">ERP · Localization</div>
-          <div class="work-title">LocalizacionCR</div>
-          <p class="work-desc">Full Odoo CR localization — Tensor Analytics + ConetechCR joint solution. Accounting, RRHH, tax reports adapted to Costa Rican law.</p>
-          <span class="work-lang">Python</span>
-        </a>
-        <a href="https://github.com/josuecocoman/LLM-LOCAL-GPT" target="_blank" rel="noopener" class="work-card reveal">
-          <div class="work-cat">AI · Local LLM</div>
-          <div class="work-title">LLM-LOCAL-GPT</div>
-          <p class="work-desc">Local GPT server with open-source LLM models. Production AI without cloud dependency — integrated with Odoo in real time via API.</p>
-          <span class="work-lang">Python</span>
-        </a>
-        <a href="https://github.com/josuecocoman/dockerdoo" target="_blank" rel="noopener" class="work-card reveal">
-          <div class="work-cat">DevOps · K8s</div>
-          <div class="work-title">dockerdoo</div>
-          <p class="work-desc">Flexible Odoo Docker image optimized for Kubernetes and Docker Swarm. Multi-version support, environment isolation, production-hardened.</p>
-          <span class="work-lang">Dockerfile</span>
-        </a>
-        <a href="https://github.com/josuecocoman/app_sale_odoo" target="_blank" rel="noopener" class="work-card reveal">
-          <div class="work-cat">Mobile · ERP</div>
-          <div class="work-title">app_sale_odoo</div>
-          <p class="work-desc">Native mobile sales app integrated with Odoo backend via JSON-RPC. Real-time sync of orders, products, and customers from the field.</p>
-          <span class="work-lang">TypeScript</span>
-        </a>
-        <a href="https://github.com/josuecocoman/locustodoorpc" target="_blank" rel="noopener" class="work-card reveal">
-          <div class="work-cat">QA · DevOps</div>
-          <div class="work-title">locustodoorpc</div>
-          <p class="work-desc">Custom Locust client for OdooRPC — load testing Odoo instances at scale. Simulates concurrent users for performance benchmarking before go-live.</p>
-          <span class="work-lang">Python</span>
-        </a>
-        <a href="https://github.com/josuecocoman/IA-IQ" target="_blank" rel="noopener" class="work-card reveal">
-          <div class="work-cat">AI · 2020</div>
-          <div class="work-title">IA-IQ / Tensor IQ</div>
-          <p class="work-desc">Proprietary AI system built in 2020 — before the LLM era. Includes Daemon-IQ (daemon process), API-IQ (REST API), and APIIA (inference layer).</p>
-          <span class="work-lang">Python</span>
-        </a>
-        <a href="https://github.com/josuecocoman/ITM-FOREX" target="_blank" rel="noopener" class="work-card reveal">
-          <div class="work-cat">Fintech · Algo</div>
-          <div class="work-title">ITM-FOREX</div>
-          <p class="work-desc">Algorithmic Forex trading robots in MQL5. In-the-money strategy certified by Swissquote. Automated execution across multiple currency pairs 2018–2023.</p>
-          <span class="work-lang">MQL5</span>
-        </a>
-        <a href="https://github.com/josuecocoman/salud" target="_blank" rel="noopener" class="work-card reveal">
-          <div class="work-cat">ERP · Health</div>
-          <div class="work-title">odoo-salud</div>
-          <p class="work-desc">Odoo module for the health sector — patient management, clinical workflows, and Costa Rican regulatory compliance integrated with core Odoo modules.</p>
-          <span class="work-lang">Python</span>
-        </a>
+<!-- SERVICES — first thing a company sees -->
+<section id="services" aria-label="Services">
+  <div class="wrap">
+    <div class="s-eye reveal">— Services</div>
+    <div class="services-intro reveal">
+      <h2>What I deliver<br/>for <em>your business</em></h2>
+      <p>Not configuration. Not copy-paste modules.<br/>
+      Full process redesign, production-grade architecture, and real AI — deployed.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc reveal">
+        <div class="svc-num">01</div>
+        <h3 class="svc-title">Odoo ERP Implementation<br/>& Architecture</h3>
+        <p class="svc-body">
+          Certified V19. Complete implementations covering accounting, HR, manufacturing, inventory, and CRM.
+          I redesign your business processes, not just configure modules.
+          Proprietary Electronic Invoicing for Costa Rica — compatible with all Odoo versions.
+        </p>
+        <div class="svc-tags">
+          <span class="tag">Odoo V10→V19</span>
+          <span class="tag">Module Dev</span>
+          <span class="tag">Process Redesign</span>
+          <span class="tag">FE Costa Rica</span>
+        </div>
+        <div class="proj-arrow">↗</div>
+      </div>
+      <div class="svc reveal">
+        <div class="svc-num">02</div>
+        <h3 class="svc-title">DevOps & Infrastructure<br/>Architecture</h3>
+        <p class="svc-body">
+          Odoo clusters on Proxmox with security hardening. Kubernetes orchestration, Docker, Nginx reverse proxy.
+          PostgreSQL deep optimization: pre-fetch, LRU cache, cProfile profiling.
+          Redis, RabbitMQ, Celery for async workloads. Built to survive Black Friday.
+        </p>
+        <div class="svc-tags">
+          <span class="tag">Kubernetes</span>
+          <span class="tag">Proxmox</span>
+          <span class="tag">PostgreSQL Tuning</span>
+          <span class="tag">Docker</span>
+        </div>
+        <div class="proj-arrow">↗</div>
+      </div>
+      <div class="svc reveal">
+        <div class="svc-num">03</div>
+        <h3 class="svc-title">AI Integration<br/>& Automation</h3>
+        <p class="svc-body">
+          Not the ChatGPT-era kind. 10+ years in automation before LLMs became a LinkedIn skill.
+          Local AI servers, custom models integrated with Odoo in real time.
+          Prompt engineering that ships to production. Deployed in 6 countries.
+        </p>
+        <div class="svc-tags">
+          <span class="tag">LLM Integration</span>
+          <span class="tag">Local AI Servers</span>
+          <span class="tag">Odoo AI Modules</span>
+          <span class="tag">Prompt Eng.</span>
+        </div>
+        <div class="proj-arrow">↗</div>
+      </div>
+      <div class="svc reveal">
+        <div class="svc-num">04</div>
+        <h3 class="svc-title">Full-Stack & Mobile<br/>Development</h3>
+        <p class="svc-body">
+          Native mobile: Android (Java), iOS (Swift), Flutter. Backend: Django, Rails, Laravel, Node.js.
+          Frontend: Vue.js, Angular, TypeScript. Custom Odoo modules and REST API integrations
+          for financial, logistics, and marketing platforms.
+        </p>
+        <div class="svc-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Flutter</span>
+          <span class="tag">Vue.js</span>
+          <span class="tag">REST APIs</span>
+        </div>
+        <div class="proj-arrow">↗</div>
+      </div>
+      <div class="svc reveal">
+        <div class="svc-num">05</div>
+        <h3 class="svc-title">Industrial Automation<br/>& IoT</h3>
+        <p class="svc-body">
+          INA-certified in PCB design and PIC microcontroller programming.
+          Retrofit of non-modern industrial machinery with sensors and custom firmware.
+          Industry 4.0: telemetry, remote control, realtime monitoring. From the wire to the dashboard.
+        </p>
+        <div class="svc-tags">
+          <span class="tag">PCB Design</span>
+          <span class="tag">PIC MCUs</span>
+          <span class="tag">IoT Industrial</span>
+          <span class="tag">Sensors</span>
+        </div>
+        <div class="proj-arrow">↗</div>
+      </div>
+      <div class="svc reveal">
+        <div class="svc-num">06</div>
+        <h3 class="svc-title">Training & Technical<br/>Leadership</h3>
+        <p class="svc-body">
+          16+ years as senior instructor at COSVIC and USACA. 100+ students trained in
+          hardware, software, networking, and electronics. Team leadership and C-level
+          requirements gathering for enterprise consulting projects.
+        </p>
+        <div class="svc-tags">
+          <span class="tag">Team Leadership</span>
+          <span class="tag">C-Level Consulting</span>
+          <span class="tag">Training</span>
+          <span class="tag">Mentoring</span>
+        </div>
+        <div class="proj-arrow">↗</div>
       </div>
     </div>
-  </section>
+    <div class="svc-cta-row reveal">
+      <p class="svc-cta-copy">
+        <strong>Available for B2B engagements.</strong> Remote or on-site in Latin America.
+      </p>
+      <a href="mailto:tensordoo@gmail.com" class="btn btn-p">Start a conversation →</a>
+    </div>
+  </div>
+</section>
 
-  <!-- Experience Timeline -->
-  <section id="timeline">
-    <div class="container">
-      <div class="section-eyebrow reveal">— Experience</div>
-      <div class="timeline-columns">
-        <div class="timeline reveal">
-          <div class="timeline-item">
-            <div class="timeline-period">2024 → Present</div>
-            <div class="timeline-role">Senior AI Developer</div>
-            <div class="timeline-company">Conetech · AI integrations deployed across 6 countries. LLM pipelines, Odoo AI extensions, production inference servers.</div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-period">2020 → Present</div>
-            <div class="timeline-role">Founder & CEO — Tensor Analytics</div>
-            <div class="timeline-company">Senior ERP consulting firm. Proprietary FE-CR solution. Clients across Costa Rica, Panama, Colombia, Ecuador, Peru and Spain.</div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-period">2019 → Present</div>
-            <div class="timeline-role">Full-Stack & Mobile Developer</div>
-            <div class="timeline-company">Flutter, Django, Rails, Vue, Node, Angular, Laravel. Native Android (Java) and iOS (Swift) applications. Own products: Letsee, Licitia.</div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-period">2019 → Present</div>
-            <div class="timeline-role">Digital Marketing Consultant</div>
-            <div class="timeline-company">Growth strategy, paid media, B2B funnel design for tech and services companies in Latin America.</div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-period">2018 → 2023</div>
-            <div class="timeline-role">Forex Trainer & Algo Developer</div>
-            <div class="timeline-company">MQL5 trading robots · Certified trainer by Swissquote · Algorithmic strategies in live accounts.</div>
-          </div>
-        </div>
-        <div class="timeline reveal">
-          <div class="timeline-item">
-            <div class="timeline-period">2018 → Present</div>
-            <div class="timeline-role">Industrial Automation Specialist</div>
-            <div class="timeline-company">PCB design, PIC microcontrollers, industrial retrofit, IoT sensor networks, IP surveillance, home automation.</div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-period">2018 → Present</div>
-            <div class="timeline-role">Networking & Security</div>
-            <div class="timeline-company">Enterprise LAN/WAN, VPN, firewall hardening, structured cabling, IP camera systems.</div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-period">2016 → Present</div>
-            <div class="timeline-role">Senior Odoo ERP Consultant</div>
-            <div class="timeline-company">V10 to V19. 3,000+ modules in production. Architecture, module development, migrations, full business process redesign across 5+ countries.</div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-period">2007 → Present</div>
-            <div class="timeline-role">Senior Instructor</div>
-            <div class="timeline-company">COSVIC & USACA · 16+ years teaching technology, programming, and digital skills. 100+ students trained.</div>
-          </div>
-        </div>
+<!-- NUMBERS -->
+<section id="numbers" aria-label="Numbers">
+  <div class="wrap">
+    <div class="num-row">
+      <div class="num-cell reveal">
+        <span class="num-n" data-count="16">0</span>
+        <div class="num-l">Years teaching</div>
+        <div class="num-d">COSVIC & USACA</div>
+      </div>
+      <div class="num-cell reveal">
+        <span class="num-n" data-count="3000" data-suffix="+">0</span>
+        <div class="num-l">Odoo modules</div>
+        <div class="num-d">In production globally</div>
+      </div>
+      <div class="num-cell reveal">
+        <span class="num-n" data-count="5" data-suffix="+">0</span>
+        <div class="num-l">Countries</div>
+        <div class="num-d">Active client deployments</div>
+      </div>
+      <div class="num-cell reveal">
+        <span class="num-n" data-count="100" data-suffix="+">0</span>
+        <div class="num-l">Students trained</div>
+        <div class="num-d">Hardware · Software · Networks</div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Certifications -->
-  <section id="certifications">
-    <div class="container">
-      <div class="section-eyebrow reveal">— Certifications & Education</div>
-      <div class="cert-grid">
-        <div class="cert-card reveal">
-          <div class="cert-issuer">Odoo S.A.</div>
-          <div class="cert-name">Odoo Certified Consultant V19</div>
-          <div class="cert-meta">Official certification · highest level<br/>ERP · V10 through V19</div>
-        </div>
-        <div class="cert-card reveal">
-          <div class="cert-issuer">INA · 2023</div>
-          <div class="cert-name">PCB Design & PIC Microcontroller</div>
-          <div class="cert-meta">Instituto Nacional de Aprendizaje<br/>Hardware · Industrial · IoT</div>
-        </div>
-        <div class="cert-card reveal">
-          <div class="cert-issuer">K-LAB · 2023</div>
-          <div class="cert-name">AWS Cloud Technology</div>
-          <div class="cert-meta">Cloud infrastructure fundamentals<br/>AWS · DevOps</div>
-        </div>
-        <div class="cert-card reveal">
-          <div class="cert-issuer">Swissquote · 2018–2023</div>
-          <div class="cert-name">Certified Forex Trainer</div>
-          <div class="cert-meta">Algorithmic trading · MQL5<br/>Live account strategies</div>
-        </div>
-        <div class="cert-card reveal">
-          <div class="cert-issuer">UCAT · 2024–2026</div>
-          <div class="cert-name">Software Engineering *(in progress)*</div>
-          <div class="cert-meta">Universidad Católica de Costa Rica<br/>B.Sc. degree program</div>
-        </div>
-        <div class="cert-card reveal">
-          <div class="cert-issuer">UTN · 2017–2019</div>
-          <div class="cert-name">Programming Technician</div>
-          <div class="cert-meta">Universidad Técnica Nacional<br/>Formal degree · Software development</div>
-        </div>
-      </div>
+<!-- PROJECTS -->
+<section id="projects" aria-label="Selected Work">
+  <div class="wrap">
+    <div class="s-eye reveal">— Selected Work</div>
+    <div class="proj-grid">
+      <a href="https://github.com/josuecocoman/FE-CR" target="_blank" rel="noopener" class="proj reveal">
+        <div class="proj-category">Flagship · ERP</div>
+        <h3 class="proj-name">FE-CR — Electronic<br/>Invoicing Costa Rica</h3>
+        <p class="proj-desc">Proprietary Odoo module for Costa Rica's mandatory electronic invoicing system. Compatible with all Odoo versions (V10 through V19). Deployed in enterprise clients across LatAm.</p>
+        <div class="proj-lang">Python · Odoo · XML · Private</div>
+        <div class="proj-arrow">↗</div>
+      </a>
+      <a href="https://github.com/josuecocoman/LLM-LOCAL-GPT" target="_blank" rel="noopener" class="proj reveal">
+        <div class="proj-category">AI · Local LLM</div>
+        <h3 class="proj-name">LLM-LOCAL-GPT<br/>Local AI Server</h3>
+        <p class="proj-desc">Production GPT server running open-source LLM models locally. Zero cloud dependency. Integrated with Odoo in real time for enterprise automation. 2025.</p>
+        <div class="proj-lang">Python · LLM · Private</div>
+        <div class="proj-arrow">↗</div>
+      </a>
+      <a href="https://github.com/josuecocoman/dockerdoo" target="_blank" rel="noopener" class="proj reveal">
+        <div class="proj-category">DevOps · Containers</div>
+        <h3 class="proj-name">dockerdoo<br/>Odoo Docker Image</h3>
+        <p class="proj-desc">Flexible, streamlined Odoo Docker image for docker-compose, Docker Swarm, and Kubernetes. Fully integrated with VSCode devcontainers. Open source.</p>
+        <div class="proj-lang">Dockerfile · Shell · Public</div>
+        <div class="proj-arrow">↗</div>
+      </a>
+      <a href="https://github.com/josuecocoman/locustodoorpc" target="_blank" rel="noopener" class="proj reveal">
+        <div class="proj-category">QA · Load Testing</div>
+        <h3 class="proj-name">locustodoorpc<br/>Odoo Load Tester</h3>
+        <p class="proj-desc">Custom Locust client using OdooRPC for load testing Odoo instances at scale. Identifies bottlenecks before they hit production. Open source.</p>
+        <div class="proj-lang">Python · Locust · Public</div>
+        <div class="proj-arrow">↗</div>
+      </a>
+      <a href="https://github.com/josuecocoman/app_sale_odoo" target="_blank" rel="noopener" class="proj reveal">
+        <div class="proj-category">Mobile · ERP</div>
+        <h3 class="proj-name">app_sale_odoo<br/>Native Sales App</h3>
+        <p class="proj-desc">Native mobile sales application integrated with Odoo backend via RPC. TypeScript + real-time inventory, orders, and customer data. 2024.</p>
+        <div class="proj-lang">TypeScript · Flutter · Private</div>
+        <div class="proj-arrow">↗</div>
+      </a>
+      <a href="https://github.com/josuecocoman/IA-IQ" target="_blank" rel="noopener" class="proj reveal">
+        <div class="proj-category">AI · 2019–2020</div>
+        <h3 class="proj-name">Tensor IQ<br/>Proprietary AI System</h3>
+        <p class="proj-desc">IA-IQ / Daemon-IQ / API-IQ — a full AI stack built in 2019–2020. Daemon, API layer, database, and UI. Years before the LLM era. This is the proof.</p>
+        <div class="proj-lang">Python · Private · Pre-LLM</div>
+        <div class="proj-arrow">↗</div>
+      </a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Stack -->
-  <section id="stack">
-    <div class="container">
-      <div class="section-eyebrow reveal">— Technical Fluency</div>
+<!-- STACK -->
+<section id="stack" aria-label="Technical Stack">
+  <div class="wrap">
+    <div class="s-eye reveal">— Technical Fluency</div>
+    <div class="stack-outer">
+      <nav class="stack-nav" aria-label="Stack categories">
+        <div class="stack-nav-item active" data-target="sg-erp">ERP</div>
+        <div class="stack-nav-item" data-target="sg-lang">Languages</div>
+        <div class="stack-nav-item" data-target="sg-fw">Frameworks</div>
+        <div class="stack-nav-item" data-target="sg-infra">Infra</div>
+        <div class="stack-nav-item" data-target="sg-ai">AI / Systems</div>
+        <div class="stack-nav-item" data-target="sg-hw">Hardware</div>
+      </nav>
       <div class="stack-groups">
-        <div class="reveal">
-          <div class="stack-group-label">ERP</div>
+        <div class="stack-group reveal" id="sg-erp">
+          <div class="stack-group-h">ERP</div>
           <div class="stack-chips">
-            <div class="chip">Odoo V19</div>
-            <div class="chip">Odoo V18</div>
-            <div class="chip">Odoo V17</div>
-            <div class="chip">Odoo V16</div>
-            <div class="chip">Odoo V15</div>
-            <div class="chip">Odoo V14</div>
-            <div class="chip">Odoo V10–V13</div>
-            <div class="chip">e-Invoice CR</div>
+            <span class="chip">Odoo V19</span><span class="chip">V18</span><span class="chip">V17</span>
+            <span class="chip">V16</span><span class="chip">V15</span><span class="chip">V14</span>
+            <span class="chip">V13</span><span class="chip">V12</span><span class="chip">V10</span>
+            <span class="chip">Enterprise</span><span class="chip">Community</span>
+            <span class="chip">Electronic Invoicing CR</span><span class="chip">HR Costa Rica</span>
+            <span class="chip">Odoo Health</span>
           </div>
         </div>
-        <div class="reveal">
-          <div class="stack-group-label">Languages</div>
+        <div class="stack-group reveal" id="sg-lang">
+          <div class="stack-group-h">Languages</div>
           <div class="stack-chips">
-            <div class="chip">Python</div>
-            <div class="chip">JavaScript</div>
-            <div class="chip">TypeScript</div>
-            <div class="chip">PHP</div>
-            <div class="chip">Ruby</div>
+            <span class="chip">Python</span><span class="chip">JavaScript</span>
+            <span class="chip">TypeScript</span><span class="chip">PHP</span>
+            <span class="chip">Ruby</span><span class="chip">Java</span>
+            <span class="chip">Swift</span><span class="chip">MQL5</span>
+            <span class="chip">SQL</span><span class="chip">Bash</span>
+            <span class="chip">HTML5</span><span class="chip">CSS3</span>
           </div>
         </div>
-        <div class="reveal">
-          <div class="stack-group-label">Frameworks</div>
+        <div class="stack-group reveal" id="sg-fw">
+          <div class="stack-group-h">Frameworks & Mobile</div>
           <div class="stack-chips">
-            <div class="chip">Django</div>
-            <div class="chip">Vue.js</div>
-            <div class="chip">Node.js</div>
-            <div class="chip">Angular</div>
-            <div class="chip">Laravel</div>
-            <div class="chip">Rails</div>
-            <div class="chip">Flutter</div>
+            <span class="chip">Django</span><span class="chip">Vue.js</span>
+            <span class="chip">Node.js</span><span class="chip">Angular</span>
+            <span class="chip">Laravel</span><span class="chip">Ruby on Rails</span>
+            <span class="chip">Flutter</span><span class="chip">Android (Java)</span>
+            <span class="chip">iOS (Swift)</span><span class="chip">WordPress</span>
           </div>
         </div>
-        <div class="reveal">
-          <div class="stack-group-label">Infrastructure</div>
+        <div class="stack-group reveal" id="sg-infra">
+          <div class="stack-group-h">Infrastructure & DevOps</div>
           <div class="stack-chips">
-            <div class="chip">PostgreSQL</div>
-            <div class="chip">Docker</div>
-            <div class="chip">Kubernetes</div>
-            <div class="chip">Proxmox</div>
-            <div class="chip">Nginx</div>
-            <div class="chip">Redis</div>
-            <div class="chip">RabbitMQ</div>
-            <div class="chip">Celery</div>
+            <span class="chip">PostgreSQL</span><span class="chip">Docker</span>
+            <span class="chip">Kubernetes</span><span class="chip">Proxmox</span>
+            <span class="chip">Nginx</span><span class="chip">Redis</span>
+            <span class="chip">RabbitMQ</span><span class="chip">Celery</span>
+            <span class="chip">Memcached</span><span class="chip">Linux Server</span>
+            <span class="chip">Windows Server</span><span class="chip">CI/CD</span>
+            <span class="chip">Locust Load Testing</span>
           </div>
         </div>
-        <div class="reveal">
-          <div class="stack-group-label">AI / Systems</div>
+        <div class="stack-group reveal" id="sg-ai">
+          <div class="stack-group-h">AI & Systems</div>
           <div class="stack-chips">
-            <div class="chip">LLM Integration</div>
-            <div class="chip">Local AI Servers</div>
-            <div class="chip">Prompt Engineering</div>
-            <div class="chip">Linux Advanced</div>
-            <div class="chip">Windows Server</div>
-            <div class="chip">PCB Design</div>
-            <div class="chip">PIC MCUs</div>
+            <span class="chip">LLM Integration</span>
+            <span class="chip">Local AI Servers</span>
+            <span class="chip">Prompt Engineering</span>
+            <span class="chip">Custom AI Models</span>
+            <span class="chip">Realtime AI (Odoo)</span>
+            <span class="chip">Algo Trading (MQL5)</span>
+          </div>
+        </div>
+        <div class="stack-group reveal" id="sg-hw">
+          <div class="stack-group-h">Hardware & Industrial</div>
+          <div class="stack-chips">
+            <span class="chip">PCB Design</span>
+            <span class="chip">PIC Microcontrollers</span>
+            <span class="chip">Firmware Programming</span>
+            <span class="chip">IoT Industrial</span>
+            <span class="chip">Machine Retrofit</span>
+            <span class="chip">IP Camera Systems</span>
+            <span class="chip">Network Architecture</span>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Currently / Contact -->
-  <section id="contact">
-    <div class="container">
-      <div class="section-eyebrow reveal">— Currently</div>
-      <div class="currently-block">
-        <div class="reveal">
-          <p class="currently-text">
-            Available for senior Odoo consulting,<br/>
-            infrastructure architecture,<br/>
-            and <em>AI integration</em> engagements.
-          </p>
-          <p class="currently-meta">
-            B2B · Remote or on-site in Latin America<br/>
-            Tensor Analytics · Costa Rica · MMXXVI
-          </p>
-        </div>
-        <div class="reveal">
-          <div class="reach-grid">
-            <div class="reach-card">
-              <div class="reach-label">Email</div>
-              <a href="mailto:tensordoo@gmail.com" class="reach-value">tensordoo@<br/>gmail.com</a>
-            </div>
-            <div class="reach-card">
-              <div class="reach-label">LinkedIn</div>
-              <a href="https://linkedin.com/in/josue-cascante-54b690119" target="_blank" rel="noopener" class="reach-value">josue-cascante</a>
-            </div>
-            <div class="reach-card">
-              <div class="reach-label">Web</div>
-              <a href="https://app.tensor-analytics.pro" target="_blank" rel="noopener" class="reach-value">tensor-<br/>analytics.pro</a>
-            </div>
-            <div class="reach-card">
-              <div class="reach-label">Phone</div>
-              <a href="tel:+50683034055" class="reach-value">+506<br/>8303-4055</a>
-            </div>
-          </div>
-        </div>
+<!-- TIMELINE -->
+<section id="timeline" aria-label="Experience">
+  <div class="wrap">
+    <div class="s-eye reveal">— Experience</div>
+    <div class="tl-wrap">
+      <div class="tl-item reveal">
+        <div class="tl-period">2024 → Present</div>
+        <div class="tl-role">Senior AI Developer & Automation Consultant</div>
+        <div class="tl-company">Conetech (Freelance) · Remote · 6 countries</div>
+        <div class="tl-desc">AI solutions and advanced prompt engineering for enterprise clients. Local LLM servers integrated with Odoo in real time. Deployed in retail, manufacturing, hospitality, and professional services.</div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-period">2020 → Present</div>
+        <div class="tl-role">Founder & CEO</div>
+        <div class="tl-company">Tensor Analytics · Costa Rica</div>
+        <div class="tl-desc">Founded and lead a technology consulting firm with active clients in 5+ countries. Designed proprietary Electronic Billing for Costa Rica. Architected and integrated realtime AI modules with Odoo. C-level requirements gathering and on-time project delivery.</div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-period">2019 → Present</div>
+        <div class="tl-role">Full-Stack & Mobile Developer</div>
+        <div class="tl-company">Tensor Analytics / Freelance · Costa Rica</div>
+        <div class="tl-desc">Flutter for Android, Django, Rails, Vue.js, Node.js, Angular, Laravel. REST API design and enterprise integrations. Custom Odoo modules for clients with requirements outside standard coverage.</div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-period">2018 → Present</div>
+        <div class="tl-role">Industrial Automation & Embedded Systems</div>
+        <div class="tl-company">Independent · Costa Rica</div>
+        <div class="tl-desc">Custom PCB design. PIC microcontroller firmware. Industry 4.0 IoT: telemetry, remote control, realtime monitoring. Machine retrofit extending lifespan without equipment replacement.</div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-period">2016 → Present</div>
+        <div class="tl-role">Senior Odoo ERP Consultant</div>
+        <div class="tl-company">International Projects · Costa Rica & LatAm</div>
+        <div class="tl-desc">Officially Odoo Certified V19. 3,000+ modules in production. Accounting, HR, MRP, inventory, sales. PostgreSQL optimization, queue systems with RabbitMQ/Celery, Odoo clusters on Proxmox with Kubernetes.</div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-period">2018 → 2023</div>
+        <div class="tl-role">Financial Markets Analyst & Forex Trainer</div>
+        <div class="tl-company">Independent · Costa Rica</div>
+        <div class="tl-desc">Algorithmic trading with MQL5. Swissquote Money Manager. Trained students for 5+ years in market structure and technical analysis.</div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-period">2007 → Present</div>
+        <div class="tl-role">Senior Instructor — Hardware, Software & Networks</div>
+        <div class="tl-company">COSVIC Institute & USACA · Costa Rica</div>
+        <div class="tl-desc">16+ years. 100+ students trained in hardware repair, software, networking, electronics, and PCB programming. Ongoing active clients in network maintenance and IoT systems.</div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="footer-inner">
-        <span class="footer-copy">MMXXVI · Josue Cascante · Costa Rica</span>
-        <a href="https://github.com/josuecocoman" target="_blank" rel="noopener" class="footer-link">github.com/josuecocoman</a>
+<!-- CONTACT -->
+<section id="contact" aria-label="Contact">
+  <div class="wrap">
+    <p class="contact-label">— Let's work together</p>
+    <h2 class="contact-h reveal">Ready when<br/>you <em>are.</em></h2>
+    <p class="contact-sub reveal">
+      B2B engagements. Remote or on-site in Latin America.<br/>
+      Senior Odoo, DevOps, AI integration, industrial automation.
+    </p>
+    <div class="contact-links reveal">
+      <a href="mailto:tensordoo@gmail.com" class="cl">
+        <div class="cl-label">Email</div>
+        <div class="cl-val">tensordoo@gmail.com</div>
+      </a>
+      <a href="https://linkedin.com/in/josue-cascante-54b690119" target="_blank" rel="noopener" class="cl">
+        <div class="cl-label">LinkedIn</div>
+        <div class="cl-val">josue-cascante</div>
+      </a>
+      <a href="https://app.tensor-analytics.pro" target="_blank" rel="noopener" class="cl">
+        <div class="cl-label">Web</div>
+        <div class="cl-val">tensor-analytics.pro</div>
+      </a>
+      <a href="tel:+50683034055" class="cl">
+        <div class="cl-label">Phone</div>
+        <div class="cl-val">+506 8303-4055</div>
+      </a>
+    </div>
+    <div class="contact-avail reveal">
+      <div class="avail-dot"></div>
+      Available for new engagements · MMXXVI
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-i">
+      <span class="footer-l">MMXXVI · Josue Cascante · Costa Rica</span>
+      <div class="footer-r">
+        <a href="https://github.com/josuecocoman" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/josuecocoman/josuecocoman" target="_blank" rel="noopener">Profile README</a>
+        <a href="mailto:tensordoo@gmail.com">Email</a>
       </div>
     </div>
-  </footer>
+  </div>
+</footer>
 
-  <!-- GSAP + Lenis -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<!-- Three.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
-  <script>
-    gsap.registerPlugin(ScrollTrigger);
+<script>
+(function(){
+  'use strict';
 
-    // Smooth scroll with Lenis
-    const lenis = new Lenis({ duration: 1.2, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
-    lenis.on('scroll', ScrollTrigger.update);
-    gsap.ticker.add(time => lenis.raf(time * 1000));
-    gsap.ticker.lagSmoothing(0);
+  /* ── GSAP SETUP ─────────────────────────────────────────── */
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.defaults({ ease: 'power2.out' });
 
-    // Custom cursor
-    const cursor = document.getElementById('cursor');
-    const cursorRing = document.getElementById('cursorRing');
-    let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
-    document.addEventListener('mousemove', e => {
-      mouseX = e.clientX; mouseY = e.clientY;
-      gsap.to(cursor, { x: mouseX, y: mouseY, duration: 0.1, ease: 'none' });
+  /* ── PRELOADER ──────────────────────────────────────────── */
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      gsap.to('#preloader', {
+        autoAlpha: 0, duration: 0.7, ease: 'power2.inOut',
+        onComplete: () => {
+          document.getElementById('preloader').style.display = 'none';
+          initHero();
+        }
+      });
+    }, 1300);
+  });
+
+  /* ── THREE.JS PARTICLES (OffscreenCanvas pattern) ────────── */
+  (function initThree(){
+    const canvas = document.getElementById('bg-canvas');
+    if (!window.THREE) return;
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: false, alpha: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setClearColor(0x000000, 0);
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.z = 5;
+
+    /* Particles */
+    const COUNT = 1800;
+    const geo = new THREE.BufferGeometry();
+    const pos = new Float32Array(COUNT * 3);
+    const sizes = new Float32Array(COUNT);
+    for (let i = 0; i < COUNT; i++) {
+      pos[i*3]   = (Math.random() - 0.5) * 22;
+      pos[i*3+1] = (Math.random() - 0.5) * 14;
+      pos[i*3+2] = (Math.random() - 0.5) * 8;
+      sizes[i]   = Math.random() * 1.5 + 0.3;
+    }
+    geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+    geo.setAttribute('size',     new THREE.BufferAttribute(sizes, 1));
+
+    const mat = new THREE.PointsMaterial({
+      color: 0xD97757,
+      size: 0.04,
+      transparent: true,
+      opacity: 0.55,
+      sizeAttenuation: true,
     });
-    gsap.ticker.add(() => {
-      ringX += (mouseX - ringX) * 0.12;
-      ringY += (mouseY - ringY) * 0.12;
-      gsap.set(cursorRing, { x: ringX, y: ringY });
-    });
+    const mesh = new THREE.Points(geo, mat);
+    scene.add(mesh);
 
-    // Nav scroll state
-    const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 40);
+    /* Second layer — muted */
+    const geo2 = new THREE.BufferGeometry();
+    const pos2 = new Float32Array(600 * 3);
+    for (let i = 0; i < 600; i++) {
+      pos2[i*3]   = (Math.random() - 0.5) * 24;
+      pos2[i*3+1] = (Math.random() - 0.5) * 16;
+      pos2[i*3+2] = (Math.random() - 0.5) * 6;
+    }
+    geo2.setAttribute('position', new THREE.BufferAttribute(pos2, 3));
+    const mat2 = new THREE.PointsMaterial({ color: 0x334155, size: 0.025, transparent: true, opacity: 0.4 });
+    scene.add(new THREE.Points(geo2, mat2));
+
+    let scrollY = 0;
+    window.addEventListener('scroll', () => { scrollY = window.scrollY; }, { passive: true });
+
+    let mx = 0, my = 0;
+    window.addEventListener('mousemove', e => {
+      mx = (e.clientX / window.innerWidth  - 0.5) * 0.4;
+      my = (e.clientY / window.innerHeight - 0.5) * 0.4;
     }, { passive: true });
 
-    // Smooth hash scroll
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        e.preventDefault();
-        const target = document.querySelector(a.getAttribute('href'));
-        if (target) lenis.scrollTo(target, { offset: -80 });
-      });
+    let raf;
+    function tick(t) {
+      raf = requestAnimationFrame(tick);
+      mesh.rotation.y = t * 0.00008 + mx * 0.3;
+      mesh.rotation.x = t * 0.00004 - my * 0.2;
+      camera.position.y = -scrollY * 0.0008;
+      renderer.render(scene, camera);
+    }
+    raf = requestAnimationFrame(tick);
+
+    /* Resize */
+    const onResize = () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    };
+    window.addEventListener('resize', onResize, { passive: true });
+  })();
+
+  /* ── CURSOR ─────────────────────────────────────────────── */
+  (function initCursor(){
+    if (window.matchMedia('(pointer:coarse)').matches) return;
+    const dot  = document.getElementById('c-dot');
+    const ring = document.getElementById('c-ring');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; }, { passive: true });
+
+    gsap.ticker.add(() => {
+      gsap.set(dot, { x: mx, y: my });
+      rx += (mx - rx) * 0.11;
+      ry += (my - ry) * 0.11;
+      gsap.set(ring, { x: rx, y: ry });
     });
 
-    // Hero entrance — stagger
-    const heroTl = gsap.timeline({ delay: 0.1 });
-    heroTl
-      .to('#accentLine',   { opacity: 1, duration: 1.2, ease: 'power2.out' })
-      .to('#heroEyebrow',  { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out' }, '-=0.9')
-      .to('#heroName',     { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.5')
-      .to('#heroManifesto',{ opacity: 1, y: 0, duration: 0.7, ease: 'power2.out' }, '-=0.4')
-      .to('#heroCta',      { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }, '-=0.3')
-      .to('#heroStats',    { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out' }, '-=0.5');
+    document.querySelectorAll('a,button,.svc,.proj,.cl,.chip,.btn').forEach(el => {
+      el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+      el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+    });
+  })();
 
-    // Counter animation for stats
-    document.querySelectorAll('[data-count]').forEach(el => {
-      const target = parseInt(el.dataset.count);
-      const suffix = el.dataset.suffix || '+';
-      const obj = { val: 0 };
+  /* ── SCROLL PROGRESS ────────────────────────────────────── */
+  (function initProgress(){
+    const bar = document.getElementById('progress');
+    const max = () => document.documentElement.scrollHeight - window.innerHeight;
+    window.addEventListener('scroll', () => {
+      const p = window.scrollY / max();
+      gsap.set(bar, { scaleX: p });
+    }, { passive: true });
+  })();
+
+  /* ── NAV SCROLL STATE ───────────────────────────────────── */
+  (function initNav(){
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('s', window.scrollY > 50);
+    }, { passive: true });
+  })();
+
+  /* ── SMOOTH HASH SCROLL ─────────────────────────────────── */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const t = document.querySelector(a.getAttribute('href'));
+      if (!t) return;
+      const top = t.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({ top, behavior: 'smooth' });
+    });
+  });
+
+  /* ── HERO ENTRANCE ──────────────────────────────────────── */
+  function initHero(){
+    const tl = gsap.timeline();
+    tl
+      .to('#hl',      { opacity: 1, duration: 1.4, ease: 'power2.out' })
+      .to('#h-tag',   { opacity: 1, y: 0, duration: 0.65 }, '-=1.0')
+      .to('#h-name',  { opacity: 1, y: 0, duration: 0.8,  ease: 'power3.out' }, '-=0.45')
+      .to('#h-sub',   { opacity: 1, y: 0, duration: 0.65 }, '-=0.4')
+      .to('#h-copy',  { opacity: 1, y: 0, duration: 0.65 }, '-=0.35')
+      .to('#h-btns',  { opacity: 1, y: 0, duration: 0.55 }, '-=0.3')
+      .to('#h-stats', { opacity: 1, y: 0, duration: 0.7  }, '-=0.5');
+
+    /* Hero counters */
+    document.querySelectorAll('.hero-stats [data-count]').forEach(el => {
+      const n = parseInt(el.dataset.count);
+      const s = el.dataset.suffix || '+';
+      const obj = { v: 0 };
       gsap.to(obj, {
-        val: target,
-        duration: 1.8,
-        ease: 'power2.out',
-        delay: 0.9,
-        onUpdate: () => {
-          el.textContent = Math.round(obj.val).toLocaleString() + (obj.val >= target ? suffix : '');
-        }
+        v: n, duration: 2, ease: 'power2.out', delay: 1.1,
+        onUpdate() { el.textContent = Math.round(obj.v).toLocaleString() + (obj.v >= n ? s : ''); }
       });
     });
+  }
 
-    // Scroll reveals
-    gsap.utils.toArray('.reveal').forEach((el, i) => {
-      gsap.to(el, {
-        opacity: 1,
-        y: 0,
-        duration: 0.7,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: el,
-          start: 'top 88%',
-          toggleActions: 'play none none none'
-        }
-      });
+  /* ── SCROLL COUNTERS ────────────────────────────────────── */
+  document.querySelectorAll('#numbers [data-count]').forEach(el => {
+    const n = parseInt(el.dataset.count);
+    const s = el.dataset.suffix || '';
+    const obj = { v: 0 };
+    gsap.to(obj, {
+      v: n, duration: 1.8, ease: 'power2.out',
+      scrollTrigger: { trigger: el, start: 'top 88%', once: true },
+      onUpdate() { el.textContent = Math.round(obj.v).toLocaleString() + (obj.v >= n ? s : ''); }
     });
+  });
 
-    // Practice card stagger
-    gsap.utils.toArray('.practice-card').forEach((card, i) => {
-      gsap.from(card, {
-        opacity: 0,
-        y: 30,
-        duration: 0.6,
-        delay: i * 0.1,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: card,
-          start: 'top 88%',
-          toggleActions: 'play none none none'
-        }
-      });
-    });
+  /* ── REVEAL ON SCROLL ───────────────────────────────────── */
+  ScrollTrigger.batch('.reveal', {
+    onEnter: els => gsap.to(els, {
+      opacity: 1, y: 0, duration: 0.7, stagger: 0.08, ease: 'power2.out',
+      overwrite: 'auto'
+    }),
+    start: 'top 88%',
+    once: true,
+  });
 
-    // Work cards stagger
-    gsap.utils.toArray('.work-card').forEach((card, i) => {
-      gsap.from(card, {
-        opacity: 0,
-        y: 24,
-        duration: 0.55,
-        delay: (i % 3) * 0.08,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: card,
-          start: 'top 90%',
-          toggleActions: 'play none none none'
-        }
+  /* ── STACK NAV HIGHLIGHT ────────────────────────────────── */
+  const navItems = document.querySelectorAll('.stack-nav-item');
+  const groups   = document.querySelectorAll('.stack-group');
+  if (navItems.length && groups.length) {
+    groups.forEach(g => {
+      ScrollTrigger.create({
+        trigger: g,
+        start: 'top center',
+        end: 'bottom center',
+        onEnter: () => setActive(g.id),
+        onEnterBack: () => setActive(g.id),
       });
     });
+    navItems.forEach(ni => {
+      ni.addEventListener('click', () => {
+        const t = document.getElementById(ni.dataset.target);
+        if (t) { const top = t.getBoundingClientRect().top + window.scrollY - 120; window.scrollTo({ top, behavior: 'smooth' }); }
+      });
+    });
+    function setActive(id) {
+      navItems.forEach(ni => ni.classList.toggle('active', ni.dataset.target === id));
+    }
+  }
 
-    // Timeline items stagger
-    gsap.utils.toArray('.timeline-item').forEach((item, i) => {
-      gsap.from(item, {
-        opacity: 0,
-        x: -16,
-        duration: 0.5,
-        delay: i * 0.07,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: item,
-          start: 'top 90%',
-          toggleActions: 'play none none none'
-        }
-      });
+  /* ── MAGNETIC HOVER (service cards) ────────────────────── */
+  document.querySelectorAll('.svc,.proj').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      const x = e.clientX - r.left - r.width  / 2;
+      const y = e.clientY - r.top  - r.height / 2;
+      gsap.to(card, { x: x * 0.06, y: y * 0.06, duration: 0.4, ease: 'power2.out', overwrite: 'auto' });
     });
+    card.addEventListener('mouseleave', () => {
+      gsap.to(card, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out(1, 0.4)', overwrite: 'auto' });
+    });
+  });
 
-    // Cert cards stagger
-    gsap.utils.toArray('.cert-card').forEach((card, i) => {
-      gsap.from(card, {
-        opacity: 0,
-        y: 20,
-        duration: 0.5,
-        delay: (i % 3) * 0.08,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: card,
-          start: 'top 90%',
-          toggleActions: 'play none none none'
-        }
-      });
-    });
-
-    // Stack chips stagger
-    gsap.utils.toArray('.chip').forEach((chip, i) => {
-      gsap.from(chip, {
-        opacity: 0,
-        x: -10,
-        duration: 0.4,
-        delay: (i % 8) * 0.05,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: chip,
-          start: 'top 92%',
-          toggleActions: 'play none none none'
-        }
-      });
-    });
-  </script>
+})();
+</script>
 
 </body>
 </html>
