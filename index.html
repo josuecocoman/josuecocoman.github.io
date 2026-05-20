@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Josue Cascante — Senior Multi-Domain Engineer</title>
+  <meta name="description" content="Senior Multi-Domain Engineer. Odoo architect, DevOps, AI & Industrial Automation. Founder of Tensor Analytics, Costa Rica." />
+  <meta property="og:title" content="Josue Cascante — Senior Multi-Domain Engineer" />
+  <meta property="og:description" content="I architect Odoo systems that survive the audit, the migration, and the third change of accountant." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --terracota: #D97757;
+      --terracota-light: #B45309;
+      --warm-gray: #A8A29E;
+      --slate: #525252;
+      --deep: #0B1120;
+      --surface: #0F172A;
+      --border: #1E293B;
+      --text: #F1F5F9;
+      --mono: 'JetBrains Mono', 'Courier New', monospace;
+      --serif: 'Instrument Serif', Georgia, serif;
+    }
+
+    html { scroll-behavior: auto; }
+
+    body {
+      background: var(--deep);
+      color: var(--text);
+      font-family: var(--mono);
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    /* Custom cursor */
+    .cursor {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      background: var(--terracota);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: width 0.2s, height 0.2s, opacity 0.2s;
+      mix-blend-mode: normal;
+    }
+    .cursor-ring {
+      position: fixed;
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(217,119,87,0.4);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: transform 0.12s ease-out, width 0.2s, height 0.2s;
+    }
+    body:has(a:hover) .cursor,
+    body:has(button:hover) .cursor { width: 6px; height: 6px; }
+    body:has(a:hover) .cursor-ring,
+    body:has(button:hover) .cursor-ring { width: 52px; height: 52px; }
+
+    /* Noise overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.35;
+    }
+
+    /* Grid lines */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(30,41,59,0.4) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(30,41,59,0.4) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 32px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 20px 0;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    nav.scrolled {
+      border-color: var(--border);
+      background: rgba(11,17,32,0.85);
+      backdrop-filter: blur(12px);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: var(--warm-gray);
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    .nav-logo span { color: var(--terracota); }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--slate);
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 0 80px;
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      width: 100%;
+    }
+    .hero-eyebrow {
+      font-size: 10px;
+      letter-spacing: 4px;
+      color: var(--terracota);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      opacity: 0;
+    }
+    .hero-name {
+      font-family: var(--serif);
+      font-size: clamp(52px, 7vw, 80px);
+      line-height: 1.02;
+      letter-spacing: -2px;
+      color: var(--text);
+      margin-bottom: 32px;
+      opacity: 0;
+    }
+    .hero-name em {
+      font-style: italic;
+      color: var(--terracota);
+    }
+    .hero-manifesto {
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--warm-gray);
+      max-width: 420px;
+      margin-bottom: 48px;
+      opacity: 0;
+    }
+    .hero-manifesto strong { color: var(--text); }
+    .hero-cta {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      opacity: 0;
+    }
+    .btn {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 12px 24px;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: none;
+    }
+    .btn-primary {
+      background: var(--terracota);
+      color: var(--deep);
+      border: 1px solid var(--terracota);
+    }
+    .btn-primary:hover { background: transparent; color: var(--terracota); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--warm-gray);
+      border: 1px solid var(--border);
+    }
+    .btn-ghost:hover { border-color: var(--warm-gray); color: var(--text); }
+
+    /* Right side: numbers */
+    .hero-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      opacity: 0;
+    }
+    .stat-row {
+      display: flex;
+      align-items: baseline;
+      gap: 20px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .stat-row:first-child { border-top: 1px solid var(--border); }
+    .stat-number {
+      font-family: var(--serif);
+      font-size: 48px;
+      font-weight: 400;
+      color: var(--text);
+      letter-spacing: -2px;
+      min-width: 100px;
+    }
+    .stat-label {
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: var(--slate);
+      text-transform: uppercase;
+      line-height: 1.5;
+    }
+    .stat-label strong { display: block; color: var(--warm-gray); margin-top: 2px; font-weight: 400; font-size: 11px; letter-spacing: 1px; text-transform: none; }
+
+    /* Accent line left */
+    .accent-line {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, transparent, var(--terracota) 30%, var(--terracota) 70%, transparent);
+      opacity: 0;
+    }
+
+    /* Sections */
+    section {
+      padding: 100px 0;
+      position: relative;
+    }
+    .section-eyebrow {
+      font-size: 10px;
+      letter-spacing: 4px;
+      color: var(--terracota);
+      text-transform: uppercase;
+      margin-bottom: 48px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .section-eyebrow::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* PRACTICE */
+    .practice-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+    .practice-card {
+      background: var(--deep);
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+    }
+    .practice-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--terracota);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    .practice-card:hover::before { transform: scaleX(1); }
+    .practice-card:hover { background: var(--surface); }
+    .practice-num {
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: var(--border);
+      margin-bottom: 16px;
+    }
+    .practice-title {
+      font-family: var(--serif);
+      font-size: 22px;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    .practice-body {
+      font-size: 12px;
+      line-height: 1.8;
+      color: var(--warm-gray);
+    }
+    .practice-tag {
+      display: inline-block;
+      margin-top: 20px;
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: var(--terracota);
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--terracota);
+      padding-bottom: 2px;
+    }
+
+    /* STACK */
+    .stack-groups {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 40px;
+    }
+    .stack-group-label {
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: var(--terracota);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .stack-chips {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .chip {
+      font-size: 11px;
+      color: var(--warm-gray);
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(30,41,59,0.6);
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .chip:hover { color: var(--text); border-color: var(--terracota); }
+
+    /* CURRENTLY */
+    .currently-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .currently-text {
+      font-family: var(--serif);
+      font-size: clamp(24px, 3vw, 36px);
+      line-height: 1.3;
+      color: var(--text);
+    }
+    .currently-text em { color: var(--terracota); font-style: italic; }
+    .currently-meta {
+      font-size: 12px;
+      color: var(--warm-gray);
+      line-height: 1.9;
+      margin-top: 20px;
+    }
+    .reach-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+    .reach-card {
+      background: var(--deep);
+      padding: 32px 28px;
+      transition: background 0.2s;
+    }
+    .reach-card:hover { background: var(--surface); }
+    .reach-label {
+      font-size: 9px;
+      letter-spacing: 3px;
+      color: var(--terracota);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .reach-value {
+      font-size: 12px;
+      color: var(--warm-gray);
+      text-decoration: none;
+      display: block;
+      line-height: 1.6;
+      transition: color 0.2s;
+    }
+    .reach-value:hover { color: var(--text); }
+
+    /* FOOTER */
+    footer {
+      padding: 40px 0;
+      border-top: 1px solid var(--border);
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-copy {
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: var(--slate);
+      text-transform: uppercase;
+    }
+    .footer-link {
+      font-size: 10px;
+      color: var(--slate);
+      text-decoration: none;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .footer-link:hover { color: var(--terracota); }
+
+    /* Scroll reveal */
+    .reveal { opacity: 0; transform: translateY(24px); }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; }
+      .hero-eyebrow, .hero-name, .hero-manifesto, .hero-cta, .hero-stats, .accent-line { opacity: 1; transform: none; }
+    }
+
+    @media (max-width: 768px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 60px; }
+      .practice-grid { grid-template-columns: 1fr; }
+      .stack-groups { grid-template-columns: repeat(2, 1fr); }
+      .currently-block { grid-template-columns: 1fr; }
+      .reach-grid { grid-template-columns: repeat(2, 1fr); }
+      .nav-links { display: none; }
+      .cursor, .cursor-ring { display: none; }
+      body { cursor: auto; }
+      a, button { cursor: pointer; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Custom cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Nav -->
+  <nav id="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="/" class="nav-logo">Josue <span>Cascante</span></a>
+        <ul class="nav-links">
+          <li><a href="#practice">Practice</a></li>
+          <li><a href="#stack">Stack</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="https://github.com/josuecocoman" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container" style="position:relative;">
+      <div class="accent-line" id="accentLine"></div>
+      <div class="hero-inner" style="padding-left: 24px;">
+        <div>
+          <p class="hero-eyebrow" id="heroEyebrow">— Senior Multi-Domain Engineer &nbsp;·&nbsp; Costa Rica</p>
+          <h1 class="hero-name" id="heroName">Josue<br/><em>Cascante</em></h1>
+          <p class="hero-manifesto" id="heroManifesto">
+            I architect Odoo systems that survive the audit, the migration,
+            and the <strong>third change of accountant.</strong><br/><br/>
+            Founder of <strong>Tensor Analytics</strong> — senior consulting at the intersection
+            of ERP, infrastructure, AI, and industrial automation.
+            10+ years doing with automation what most discovered after ChatGPT.
+          </p>
+          <div class="hero-cta" id="heroCta">
+            <a href="mailto:tensordoo@gmail.com" class="btn btn-primary">Contact for engagements →</a>
+            <a href="#practice" class="btn btn-ghost">View practice</a>
+          </div>
+        </div>
+        <div class="hero-stats" id="heroStats">
+          <div class="stat-row">
+            <div class="stat-number" data-count="16">0</div>
+            <div class="stat-label">
+              YEARS TEACHING
+              <strong>COSVIC & USACA · 100+ students</strong>
+            </div>
+          </div>
+          <div class="stat-row">
+            <div class="stat-number" data-count="3000" data-suffix="+">0</div>
+            <div class="stat-label">
+              MODULES IN PRODUCTION
+              <strong>Odoo deployments · 5+ countries</strong>
+            </div>
+          </div>
+          <div class="stat-row">
+            <div class="stat-number" style="font-size:28px; letter-spacing:-1px;">V10→V19</div>
+            <div class="stat-label">
+              ODOO CERTIFIED
+              <strong>Official V19 · all major versions</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Practice -->
+  <section id="practice">
+    <div class="container">
+      <div class="section-eyebrow reveal">— Practice</div>
+      <div class="practice-grid">
+        <div class="practice-card reveal">
+          <div class="practice-num">01</div>
+          <h2 class="practice-title">Odoo ERP</h2>
+          <p class="practice-body">
+            Certified V19. Architecture, module development, full business process
+            redesign — accounting, HR, manufacturing, inventory.
+            I don't configure modules. I redesign workflows.<br/><br/>
+            Flagship: proprietary Electronic Invoicing for Costa Rica,
+            compatible across all Odoo versions.
+          </p>
+          <span class="practice-tag">Odoo V10 → V19</span>
+        </div>
+        <div class="practice-card reveal">
+          <div class="practice-num">02</div>
+          <h2 class="practice-title">DevOps & Architecture</h2>
+          <p class="practice-body">
+            Odoo clusters on Proxmox with hardening. Kubernetes · Docker · Nginx ·
+            PostgreSQL deep tuning (pre-fetch, LRU cache, cProfile profiling) ·
+            Redis · Memcached · RabbitMQ · Celery.<br/><br/>
+            Built for production reality, not demo conditions.
+          </p>
+          <span class="practice-tag">Infrastructure · K8s · Proxmox</span>
+        </div>
+        <div class="practice-card reveal">
+          <div class="practice-num">03</div>
+          <h2 class="practice-title">AI & Automation</h2>
+          <p class="practice-body">
+            Not the ChatGPT-era kind. 10+ years in automation before LLMs
+            became a LinkedIn skill. Local AI servers, custom models integrated
+            with Odoo in real time, prompt engineering that ships to production.<br/><br/>
+            Serious AI — before it was mainstream.
+          </p>
+          <span class="practice-tag">LLMs · Local AI · Prompt Engineering</span>
+        </div>
+        <div class="practice-card reveal">
+          <div class="practice-num">04</div>
+          <h2 class="practice-title">Industrial & IoT</h2>
+          <p class="practice-body">
+            INA-certified in PCB design and PIC microcontroller programming.
+            Industrial machinery retrofit with sensors and IoT. Secure local and
+            portable networks, IP camera systems, home automation.<br/><br/>
+            From the wire to the dashboard.
+          </p>
+          <span class="practice-tag">PCB · PIC · IoT · Networks</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stack -->
+  <section id="stack">
+    <div class="container">
+      <div class="section-eyebrow reveal">— Technical Fluency</div>
+      <div class="stack-groups">
+        <div class="reveal">
+          <div class="stack-group-label">ERP</div>
+          <div class="stack-chips">
+            <div class="chip">Odoo V19</div>
+            <div class="chip">Odoo V18</div>
+            <div class="chip">Odoo V17</div>
+            <div class="chip">Odoo V16</div>
+            <div class="chip">Odoo V15</div>
+            <div class="chip">Odoo V14</div>
+            <div class="chip">Odoo V10–V13</div>
+            <div class="chip">e-Invoice CR</div>
+          </div>
+        </div>
+        <div class="reveal">
+          <div class="stack-group-label">Languages</div>
+          <div class="stack-chips">
+            <div class="chip">Python</div>
+            <div class="chip">JavaScript</div>
+            <div class="chip">TypeScript</div>
+            <div class="chip">PHP</div>
+            <div class="chip">Ruby</div>
+          </div>
+        </div>
+        <div class="reveal">
+          <div class="stack-group-label">Frameworks</div>
+          <div class="stack-chips">
+            <div class="chip">Django</div>
+            <div class="chip">Vue.js</div>
+            <div class="chip">Node.js</div>
+            <div class="chip">Angular</div>
+            <div class="chip">Laravel</div>
+            <div class="chip">Rails</div>
+            <div class="chip">Flutter</div>
+          </div>
+        </div>
+        <div class="reveal">
+          <div class="stack-group-label">Infrastructure</div>
+          <div class="stack-chips">
+            <div class="chip">PostgreSQL</div>
+            <div class="chip">Docker</div>
+            <div class="chip">Kubernetes</div>
+            <div class="chip">Proxmox</div>
+            <div class="chip">Nginx</div>
+            <div class="chip">Redis</div>
+            <div class="chip">RabbitMQ</div>
+            <div class="chip">Celery</div>
+          </div>
+        </div>
+        <div class="reveal">
+          <div class="stack-group-label">AI / Systems</div>
+          <div class="stack-chips">
+            <div class="chip">LLM Integration</div>
+            <div class="chip">Local AI Servers</div>
+            <div class="chip">Prompt Engineering</div>
+            <div class="chip">Linux Advanced</div>
+            <div class="chip">Windows Server</div>
+            <div class="chip">PCB Design</div>
+            <div class="chip">PIC MCUs</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Currently / Contact -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-eyebrow reveal">— Currently</div>
+      <div class="currently-block">
+        <div class="reveal">
+          <p class="currently-text">
+            Available for senior Odoo consulting,<br/>
+            infrastructure architecture,<br/>
+            and <em>AI integration</em> engagements.
+          </p>
+          <p class="currently-meta">
+            B2B · Remote or on-site in Latin America<br/>
+            Tensor Analytics · Costa Rica · MMXXVI
+          </p>
+        </div>
+        <div class="reveal">
+          <div class="reach-grid">
+            <div class="reach-card">
+              <div class="reach-label">Email</div>
+              <a href="mailto:tensordoo@gmail.com" class="reach-value">tensordoo@<br/>gmail.com</a>
+            </div>
+            <div class="reach-card">
+              <div class="reach-label">LinkedIn</div>
+              <a href="https://linkedin.com/in/josue-cascante-54b690119" target="_blank" rel="noopener" class="reach-value">josue-cascante</a>
+            </div>
+            <div class="reach-card">
+              <div class="reach-label">Web</div>
+              <a href="https://app.tensor-analytics.pro" target="_blank" rel="noopener" class="reach-value">tensor-<br/>analytics.pro</a>
+            </div>
+            <div class="reach-card">
+              <div class="reach-label">Phone</div>
+              <a href="tel:+50683034055" class="reach-value">+506<br/>8303-4055</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-copy">MMXXVI · Josue Cascante · Costa Rica</span>
+        <a href="https://github.com/josuecocoman" target="_blank" rel="noopener" class="footer-link">github.com/josuecocoman</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- GSAP + Lenis -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Smooth scroll with Lenis
+    const lenis = new Lenis({ duration: 1.2, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(time => lenis.raf(time * 1000));
+    gsap.ticker.lagSmoothing(0);
+
+    // Custom cursor
+    const cursor = document.getElementById('cursor');
+    const cursorRing = document.getElementById('cursorRing');
+    let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+    document.addEventListener('mousemove', e => {
+      mouseX = e.clientX; mouseY = e.clientY;
+      gsap.to(cursor, { x: mouseX, y: mouseY, duration: 0.1, ease: 'none' });
+    });
+    gsap.ticker.add(() => {
+      ringX += (mouseX - ringX) * 0.12;
+      ringY += (mouseY - ringY) * 0.12;
+      gsap.set(cursorRing, { x: ringX, y: ringY });
+    });
+
+    // Nav scroll state
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    // Smooth hash scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) lenis.scrollTo(target, { offset: -80 });
+      });
+    });
+
+    // Hero entrance — stagger
+    const heroTl = gsap.timeline({ delay: 0.1 });
+    heroTl
+      .to('#accentLine',   { opacity: 1, duration: 1.2, ease: 'power2.out' })
+      .to('#heroEyebrow',  { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out' }, '-=0.9')
+      .to('#heroName',     { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.5')
+      .to('#heroManifesto',{ opacity: 1, y: 0, duration: 0.7, ease: 'power2.out' }, '-=0.4')
+      .to('#heroCta',      { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }, '-=0.3')
+      .to('#heroStats',    { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out' }, '-=0.5');
+
+    // Counter animation for stats
+    document.querySelectorAll('[data-count]').forEach(el => {
+      const target = parseInt(el.dataset.count);
+      const suffix = el.dataset.suffix || '+';
+      const obj = { val: 0 };
+      gsap.to(obj, {
+        val: target,
+        duration: 1.8,
+        ease: 'power2.out',
+        delay: 0.9,
+        onUpdate: () => {
+          el.textContent = Math.round(obj.val).toLocaleString() + (obj.val >= target ? suffix : '');
+        }
+      });
+    });
+
+    // Scroll reveals
+    gsap.utils.toArray('.reveal').forEach((el, i) => {
+      gsap.to(el, {
+        opacity: 1,
+        y: 0,
+        duration: 0.7,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 88%',
+          toggleActions: 'play none none none'
+        }
+      });
+    });
+
+    // Practice card stagger
+    gsap.utils.toArray('.practice-card').forEach((card, i) => {
+      gsap.from(card, {
+        opacity: 0,
+        y: 30,
+        duration: 0.6,
+        delay: i * 0.1,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: card,
+          start: 'top 88%',
+          toggleActions: 'play none none none'
+        }
+      });
+    });
+
+    // Stack chips stagger
+    gsap.utils.toArray('.chip').forEach((chip, i) => {
+      gsap.from(chip, {
+        opacity: 0,
+        x: -10,
+        duration: 0.4,
+        delay: (i % 8) * 0.05,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: chip,
+          start: 'top 92%',
+          toggleActions: 'play none none none'
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
